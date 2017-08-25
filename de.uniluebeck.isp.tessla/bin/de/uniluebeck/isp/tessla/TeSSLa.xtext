@@ -1,0 +1,107 @@
+grammar de.uniluebeck.isp.tessla.TeSSLa with org.eclipse.xtext.common.Terminals
+
+generate teSSLa "http://www.uniluebeck.de/isp/tessla/TeSSLa"
+
+Model:
+	spec += statement*;
+
+statement:
+	definition | out | in | SL_COMMENT
+;
+  
+@Override 
+terminal SL_COMMENT:
+    ('--') !('\n'|'\r')* ('\r'? '\n')?
+;  
+  
+definition:
+	('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=expression | '{' statements+=statement* expression=expression'}')
+;
+
+paramList:
+	{paramList} '(' params+=ID (':' types+=type)? (',' params+=ID (':' types+=type)?)* ')'
+	| {paramList} '(' ')'
+;
+
+out:
+	'out' expression=expression ('as' name=ID)?
+;
+	
+in:
+	'in' name=ID ':' type=type
+;
+
+expression:
+//	'if' expression 'then' expression ('else' expression)?
+//	| expression ':' type
+//	| expression infixOperator expression
+//	| unaryOperator expression
+//	| '(' expression ')'
+//	| '{' expression '}'
+//	| ID '(' (arg (',' arg)*)? ')'
+//	| ID
+//	| STRING
+//	| INT
+//	| '()'
+//	| 'true'
+//	| 'false'
+	(('if' infix+=expInfix 'then')* infix+=expInfix ('else' ('if' infix+=expInfix 'then')* infix+=expInfix)* (':' type=type)?)
+	| (ID '=' expression)
+;
+
+expInfix:
+	unary+=expUnary (operator+=infixOperator unary+=expUnary)* (':' type=type)?
+;
+
+expUnary:
+	(operator=unaryOperator)? value=expFunc (':' type=type)?
+;
+
+expFunc:
+	(name=ID '(' (params+=expression (',' params+=expression)*)? ')' (':' type=type)?)
+	| (name=expLit (':' type=type)?)
+;
+
+expLit:
+	ID
+	| STRING
+	| INT
+	| '()' 
+	| 'true' 
+	| 'false' 
+;
+	
+//arg:
+//	ID '=' expression
+//	| expression
+//;
+
+type:
+	(ID '<' type (',' type)* '>')
+	| ID
+;
+
+infixOperator:
+	'%'
+	| '<<'
+	| '>>'
+	| '>='
+	| '<='
+	| '<'
+	| '>'
+	| '!='
+	| '=='
+	| '&'
+	| '|'
+	| '^'
+	| '+'
+	| '-'
+	| '*'
+	| '/'
+;
+
+unaryOperator:
+	'~'
+	| '-'
+	| '!'
+;
