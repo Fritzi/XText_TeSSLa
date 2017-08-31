@@ -96,13 +96,49 @@ public interface TeSSLaPackage extends EPackage
   int STATEMENT = 1;
 
   /**
+   * The feature id for the '<em><b>Def</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__DEF = 0;
+
+  /**
+   * The feature id for the '<em><b>Out</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__OUT = 1;
+
+  /**
+   * The feature id for the '<em><b>In</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__IN = 2;
+
+  /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATEMENT__COMMENT = 3;
+
+  /**
    * The number of structural features of the '<em>statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STATEMENT_FEATURE_COUNT = 0;
+  int STATEMENT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl <em>definition</em>}' class.
@@ -121,7 +157,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION__DEF = STATEMENT_FEATURE_COUNT + 0;
+  int DEFINITION__DEF = 0;
 
   /**
    * The feature id for the '<em><b>Param List</b></em>' containment reference.
@@ -130,7 +166,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION__PARAM_LIST = STATEMENT_FEATURE_COUNT + 1;
+  int DEFINITION__PARAM_LIST = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -139,7 +175,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION__TYPE = STATEMENT_FEATURE_COUNT + 2;
+  int DEFINITION__TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -148,7 +184,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION__EXPRESSION = STATEMENT_FEATURE_COUNT + 3;
+  int DEFINITION__EXPRESSION = 3;
 
   /**
    * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -157,7 +193,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION__STATEMENTS = STATEMENT_FEATURE_COUNT + 4;
+  int DEFINITION__STATEMENTS = 4;
 
   /**
    * The number of structural features of the '<em>definition</em>' class.
@@ -166,7 +202,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 5;
+  int DEFINITION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.paramListImpl <em>param List</em>}' class.
@@ -216,13 +252,13 @@ public interface TeSSLaPackage extends EPackage
   int OUT = 4;
 
   /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OUT__EXPRESSION = STATEMENT_FEATURE_COUNT + 0;
+  int OUT__EXP = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -231,7 +267,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OUT__NAME = STATEMENT_FEATURE_COUNT + 1;
+  int OUT__NAME = 1;
 
   /**
    * The number of structural features of the '<em>out</em>' class.
@@ -240,7 +276,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OUT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int OUT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.inImpl <em>in</em>}' class.
@@ -259,7 +295,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IN__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int IN__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -268,7 +304,7 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IN__TYPE = STATEMENT_FEATURE_COUNT + 1;
+  int IN__TYPE = 1;
 
   /**
    * The number of structural features of the '<em>in</em>' class.
@@ -277,7 +313,44 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IN_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int IN_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.typedExpressionImpl <em>typed Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.typedExpressionImpl
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#gettypedExpression()
+   * @generated
+   */
+  int TYPED_EXPRESSION = 6;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_EXPRESSION__EXP = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_EXPRESSION__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>typed Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_EXPRESSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl <em>expression</em>}' class.
@@ -287,25 +360,52 @@ public interface TeSSLaPackage extends EPackage
    * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpression()
    * @generated
    */
-  int EXPRESSION = 6;
+  int EXPRESSION = 7;
 
   /**
-   * The feature id for the '<em><b>Infix</b></em>' containment reference list.
+   * The feature id for the '<em><b>If</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__INFIX = 0;
+  int EXPRESSION__IF = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Then</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION__TYPE = 1;
+  int EXPRESSION__THEN = 1;
+
+  /**
+   * The feature id for the '<em><b>Else</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__ELSE = 2;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__VAL = 3;
+
+  /**
+   * The feature id for the '<em><b>Infix</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__INFIX = 4;
 
   /**
    * The number of structural features of the '<em>expression</em>' class.
@@ -314,109 +414,44 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 2;
+  int EXPRESSION_FEATURE_COUNT = 5;
 
   /**
-   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expInfixImpl <em>exp Infix</em>}' class.
+   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl <em>value</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.expInfixImpl
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpInfix()
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getvalue()
    * @generated
    */
-  int EXP_INFIX = 7;
+  int VALUE = 8;
 
   /**
-   * The feature id for the '<em><b>Unary</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP_INFIX__UNARY = 0;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute list.
+   * The feature id for the '<em><b>Op</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_INFIX__OPERATOR = 1;
+  int VALUE__OP = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_INFIX__TYPE = 2;
+  int VALUE__EXP = 1;
 
   /**
-   * The number of structural features of the '<em>exp Infix</em>' class.
+   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_INFIX_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl <em>exp Unary</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpUnary()
-   * @generated
-   */
-  int EXP_UNARY = 8;
-
-  /**
-   * The feature id for the '<em><b>Operator</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP_UNARY__OPERATOR = 0;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP_UNARY__VALUE = 1;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP_UNARY__TYPE = 2;
-
-  /**
-   * The number of structural features of the '<em>exp Unary</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP_UNARY_FEATURE_COUNT = 3;
-
-  /**
-   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expFuncImpl <em>exp Func</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.expFuncImpl
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpFunc()
-   * @generated
-   */
-  int EXP_FUNC = 9;
+  int VALUE__STATEMENTS = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -425,34 +460,71 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXP_FUNC__NAME = 0;
+  int VALUE__NAME = 3;
 
   /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * The feature id for the '<em><b>Args</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_FUNC__PARAMS = 1;
+  int VALUE__ARGS = 4;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Val</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_FUNC__TYPE = 2;
+  int VALUE__VAL = 5;
 
   /**
-   * The number of structural features of the '<em>exp Func</em>' class.
+   * The number of structural features of the '<em>value</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP_FUNC_FEATURE_COUNT = 3;
+  int VALUE_FEATURE_COUNT = 6;
+
+  /**
+   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.argImpl <em>arg</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.argImpl
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getarg()
+   * @generated
+   */
+  int ARG = 9;
+
+  /**
+   * The feature id for the '<em><b>Arg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARG__ARG = 0;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARG__EXP = 1;
+
+  /**
+   * The number of structural features of the '<em>arg</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARG_FEATURE_COUNT = 2;
 
 
   /**
@@ -485,6 +557,50 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    */
   EClass getstatement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getDef <em>Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Def</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getDef()
+   * @see #getstatement()
+   * @generated
+   */
+  EReference getstatement_Def();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getOut <em>Out</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Out</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getOut()
+   * @see #getstatement()
+   * @generated
+   */
+  EReference getstatement_Out();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getIn <em>In</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>In</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getIn()
+   * @see #getstatement()
+   * @generated
+   */
+  EReference getstatement_In();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getComment <em>Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Comment</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getComment()
+   * @see #getstatement()
+   * @generated
+   */
+  EAttribute getstatement_Comment();
 
   /**
    * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.definition <em>definition</em>}'.
@@ -594,15 +710,15 @@ public interface TeSSLaPackage extends EPackage
   EClass getout();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.out#getExpression <em>Expression</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.out#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.out#getExpression()
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.out#getExp()
    * @see #getout()
    * @generated
    */
-  EReference getout_Expression();
+  EReference getout_Exp();
 
   /**
    * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.out#getName <em>Name</em>}'.
@@ -648,6 +764,38 @@ public interface TeSSLaPackage extends EPackage
   EAttribute getin_Type();
 
   /**
+   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.typedExpression <em>typed Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>typed Expression</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.typedExpression
+   * @generated
+   */
+  EClass gettypedExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.typedExpression#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.typedExpression#getExp()
+   * @see #gettypedExpression()
+   * @generated
+   */
+  EReference gettypedExpression_Exp();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.typedExpression#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.typedExpression#getType()
+   * @see #gettypedExpression()
+   * @generated
+   */
+  EAttribute gettypedExpression_Type();
+
+  /**
    * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.expression <em>expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -658,155 +806,167 @@ public interface TeSSLaPackage extends EPackage
   EClass getexpression();
 
   /**
-   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getInfix <em>Infix</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getIf <em>If</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Infix</em>'.
+   * @return the meta object for the containment reference '<em>If</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.expression#getIf()
+   * @see #getexpression()
+   * @generated
+   */
+  EReference getexpression_If();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getThen <em>Then</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.expression#getThen()
+   * @see #getexpression()
+   * @generated
+   */
+  EReference getexpression_Then();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getElse <em>Else</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.expression#getElse()
+   * @see #getexpression()
+   * @generated
+   */
+  EReference getexpression_Else();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Val</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.expression#getVal()
+   * @see #getexpression()
+   * @generated
+   */
+  EReference getexpression_Val();
+
+  /**
+   * Returns the meta object for the attribute list '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getInfix <em>Infix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Infix</em>'.
    * @see de.uniluebeck.isp.tessla.teSSLa.expression#getInfix()
    * @see #getexpression()
    * @generated
    */
-  EReference getexpression_Infix();
+  EAttribute getexpression_Infix();
 
   /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getType <em>Type</em>}'.
+   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.value <em>value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expression#getType()
-   * @see #getexpression()
+   * @return the meta object for class '<em>value</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.value
    * @generated
    */
-  EAttribute getexpression_Type();
+  EClass getvalue();
 
   /**
-   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.expInfix <em>exp Infix</em>}'.
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.value#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>exp Infix</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expInfix
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.value#getOp()
+   * @see #getvalue()
    * @generated
    */
-  EClass getexpInfix();
+  EAttribute getvalue_Op();
 
   /**
-   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.expInfix#getUnary <em>Unary</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.value#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Unary</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expInfix#getUnary()
-   * @see #getexpInfix()
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.value#getExp()
+   * @see #getvalue()
    * @generated
    */
-  EReference getexpInfix_Unary();
+  EReference getvalue_Exp();
 
   /**
-   * Returns the meta object for the attribute list '{@link de.uniluebeck.isp.tessla.teSSLa.expInfix#getOperator <em>Operator</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.value#getStatements <em>Statements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Operator</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expInfix#getOperator()
-   * @see #getexpInfix()
+   * @return the meta object for the containment reference list '<em>Statements</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.value#getStatements()
+   * @see #getvalue()
    * @generated
    */
-  EAttribute getexpInfix_Operator();
+  EReference getvalue_Statements();
 
   /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.expInfix#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expInfix#getType()
-   * @see #getexpInfix()
-   * @generated
-   */
-  EAttribute getexpInfix_Type();
-
-  /**
-   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.expUnary <em>exp Unary</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>exp Unary</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expUnary
-   * @generated
-   */
-  EClass getexpUnary();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.expUnary#getOperator <em>Operator</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operator</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expUnary#getOperator()
-   * @see #getexpUnary()
-   * @generated
-   */
-  EAttribute getexpUnary_Operator();
-
-  /**
-   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.expUnary#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expUnary#getValue()
-   * @see #getexpUnary()
-   * @generated
-   */
-  EReference getexpUnary_Value();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.expUnary#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expUnary#getType()
-   * @see #getexpUnary()
-   * @generated
-   */
-  EAttribute getexpUnary_Type();
-
-  /**
-   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.expFunc <em>exp Func</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>exp Func</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expFunc
-   * @generated
-   */
-  EClass getexpFunc();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.expFunc#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.value#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expFunc#getName()
-   * @see #getexpFunc()
+   * @see de.uniluebeck.isp.tessla.teSSLa.value#getName()
+   * @see #getvalue()
    * @generated
    */
-  EAttribute getexpFunc_Name();
+  EAttribute getvalue_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.expFunc#getParams <em>Params</em>}'.
+   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.value#getArgs <em>Args</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Params</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expFunc#getParams()
-   * @see #getexpFunc()
+   * @return the meta object for the containment reference list '<em>Args</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.value#getArgs()
+   * @see #getvalue()
    * @generated
    */
-  EReference getexpFunc_Params();
+  EReference getvalue_Args();
 
   /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.expFunc#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.value#getVal <em>Val</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expFunc#getType()
-   * @see #getexpFunc()
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.value#getVal()
+   * @see #getvalue()
    * @generated
    */
-  EAttribute getexpFunc_Type();
+  EAttribute getvalue_Val();
+
+  /**
+   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.arg <em>arg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>arg</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.arg
+   * @generated
+   */
+  EClass getarg();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.arg#getArg <em>Arg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Arg</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.arg#getArg()
+   * @see #getarg()
+   * @generated
+   */
+  EAttribute getarg_Arg();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.arg#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.arg#getExp()
+   * @see #getarg()
+   * @generated
+   */
+  EReference getarg_Exp();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -858,6 +1018,38 @@ public interface TeSSLaPackage extends EPackage
      * @generated
      */
     EClass STATEMENT = eINSTANCE.getstatement();
+
+    /**
+     * The meta object literal for the '<em><b>Def</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__DEF = eINSTANCE.getstatement_Def();
+
+    /**
+     * The meta object literal for the '<em><b>Out</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__OUT = eINSTANCE.getstatement_Out();
+
+    /**
+     * The meta object literal for the '<em><b>In</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATEMENT__IN = eINSTANCE.getstatement_In();
+
+    /**
+     * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATEMENT__COMMENT = eINSTANCE.getstatement_Comment();
 
     /**
      * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl <em>definition</em>}' class.
@@ -946,12 +1138,12 @@ public interface TeSSLaPackage extends EPackage
     EClass OUT = eINSTANCE.getout();
 
     /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference OUT__EXPRESSION = eINSTANCE.getout_Expression();
+    EReference OUT__EXP = eINSTANCE.getout_Exp();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -988,6 +1180,32 @@ public interface TeSSLaPackage extends EPackage
     EAttribute IN__TYPE = eINSTANCE.getin_Type();
 
     /**
+     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.typedExpressionImpl <em>typed Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.typedExpressionImpl
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#gettypedExpression()
+     * @generated
+     */
+    EClass TYPED_EXPRESSION = eINSTANCE.gettypedExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPED_EXPRESSION__EXP = eINSTANCE.gettypedExpression_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPED_EXPRESSION__TYPE = eINSTANCE.gettypedExpression_Type();
+
+    /**
      * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl <em>expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -998,98 +1216,78 @@ public interface TeSSLaPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getexpression();
 
     /**
-     * The meta object literal for the '<em><b>Infix</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>If</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPRESSION__INFIX = eINSTANCE.getexpression_Infix();
+    EReference EXPRESSION__IF = eINSTANCE.getexpression_If();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXPRESSION__TYPE = eINSTANCE.getexpression_Type();
+    EReference EXPRESSION__THEN = eINSTANCE.getexpression_Then();
 
     /**
-     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expInfixImpl <em>exp Infix</em>}' class.
+     * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.expInfixImpl
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpInfix()
      * @generated
      */
-    EClass EXP_INFIX = eINSTANCE.getexpInfix();
+    EReference EXPRESSION__ELSE = eINSTANCE.getexpression_Else();
 
     /**
-     * The meta object literal for the '<em><b>Unary</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Val</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP_INFIX__UNARY = eINSTANCE.getexpInfix_Unary();
+    EReference EXPRESSION__VAL = eINSTANCE.getexpression_Val();
 
     /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Infix</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXP_INFIX__OPERATOR = eINSTANCE.getexpInfix_Operator();
+    EAttribute EXPRESSION__INFIX = eINSTANCE.getexpression_Infix();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl <em>value</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getvalue()
      * @generated
      */
-    EAttribute EXP_INFIX__TYPE = eINSTANCE.getexpInfix_Type();
+    EClass VALUE = eINSTANCE.getvalue();
 
     /**
-     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl <em>exp Unary</em>}' class.
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpUnary()
      * @generated
      */
-    EClass EXP_UNARY = eINSTANCE.getexpUnary();
+    EAttribute VALUE__OP = eINSTANCE.getvalue_Op();
 
     /**
-     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXP_UNARY__OPERATOR = eINSTANCE.getexpUnary_Operator();
+    EReference VALUE__EXP = eINSTANCE.getvalue_Exp();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP_UNARY__VALUE = eINSTANCE.getexpUnary_Value();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXP_UNARY__TYPE = eINSTANCE.getexpUnary_Type();
-
-    /**
-     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.expFuncImpl <em>exp Func</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.expFuncImpl
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getexpFunc()
-     * @generated
-     */
-    EClass EXP_FUNC = eINSTANCE.getexpFunc();
+    EReference VALUE__STATEMENTS = eINSTANCE.getvalue_Statements();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1097,23 +1295,49 @@ public interface TeSSLaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXP_FUNC__NAME = eINSTANCE.getexpFunc_Name();
+    EAttribute VALUE__NAME = eINSTANCE.getvalue_Name();
 
     /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Args</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP_FUNC__PARAMS = eINSTANCE.getexpFunc_Params();
+    EReference VALUE__ARGS = eINSTANCE.getvalue_Args();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXP_FUNC__TYPE = eINSTANCE.getexpFunc_Type();
+    EAttribute VALUE__VAL = eINSTANCE.getvalue_Val();
+
+    /**
+     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.argImpl <em>arg</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.argImpl
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getarg()
+     * @generated
+     */
+    EClass ARG = eINSTANCE.getarg();
+
+    /**
+     * The meta object literal for the '<em><b>Arg</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARG__ARG = eINSTANCE.getarg_Arg();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARG__EXP = eINSTANCE.getarg_Exp();
 
   }
 

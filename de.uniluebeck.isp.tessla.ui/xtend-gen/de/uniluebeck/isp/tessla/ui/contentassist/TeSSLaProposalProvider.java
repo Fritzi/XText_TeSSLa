@@ -11,4 +11,7 @@ import de.uniluebeck.isp.tessla.ui.contentassist.AbstractTeSSLaProposalProvider;
  */
 @SuppressWarnings("all")
 public class TeSSLaProposalProvider extends AbstractTeSSLaProposalProvider {
+	
+	
+	
 }

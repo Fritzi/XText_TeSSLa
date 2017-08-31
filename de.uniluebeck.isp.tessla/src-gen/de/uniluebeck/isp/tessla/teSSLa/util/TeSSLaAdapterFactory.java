@@ -106,24 +106,24 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
         return createinAdapter();
       }
       @Override
+      public Adapter casetypedExpression(typedExpression object)
+      {
+        return createtypedExpressionAdapter();
+      }
+      @Override
       public Adapter caseexpression(expression object)
       {
         return createexpressionAdapter();
       }
       @Override
-      public Adapter caseexpInfix(expInfix object)
+      public Adapter casevalue(value object)
       {
-        return createexpInfixAdapter();
+        return createvalueAdapter();
       }
       @Override
-      public Adapter caseexpUnary(expUnary object)
+      public Adapter casearg(arg object)
       {
-        return createexpUnaryAdapter();
-      }
-      @Override
-      public Adapter caseexpFunc(expFunc object)
-      {
-        return createexpFuncAdapter();
+        return createargAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -238,6 +238,21 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.typedExpression <em>typed Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uniluebeck.isp.tessla.teSSLa.typedExpression
+   * @generated
+   */
+  public Adapter createtypedExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.expression <em>expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -253,46 +268,31 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.expInfix <em>exp Infix</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.value <em>value</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expInfix
+   * @see de.uniluebeck.isp.tessla.teSSLa.value
    * @generated
    */
-  public Adapter createexpInfixAdapter()
+  public Adapter createvalueAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.expUnary <em>exp Unary</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.arg <em>arg</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expUnary
+   * @see de.uniluebeck.isp.tessla.teSSLa.arg
    * @generated
    */
-  public Adapter createexpUnaryAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.expFunc <em>exp Func</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see de.uniluebeck.isp.tessla.teSSLa.expFunc
-   * @generated
-   */
-  public Adapter createexpFuncAdapter()
+  public Adapter createargAdapter()
   {
     return null;
   }

@@ -3,6 +3,7 @@
  */
 package de.uniluebeck.isp.tessla.teSSLa;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +22,7 @@ package de.uniluebeck.isp.tessla.teSSLa;
  * @model
  * @generated
  */
-public interface in extends statement
+public interface in extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

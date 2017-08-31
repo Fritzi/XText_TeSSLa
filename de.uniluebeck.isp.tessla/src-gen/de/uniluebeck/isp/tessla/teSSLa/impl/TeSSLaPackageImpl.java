@@ -6,15 +6,15 @@ package de.uniluebeck.isp.tessla.teSSLa.impl;
 import de.uniluebeck.isp.tessla.teSSLa.Model;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaFactory;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
+import de.uniluebeck.isp.tessla.teSSLa.arg;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
-import de.uniluebeck.isp.tessla.teSSLa.expFunc;
-import de.uniluebeck.isp.tessla.teSSLa.expInfix;
-import de.uniluebeck.isp.tessla.teSSLa.expUnary;
 import de.uniluebeck.isp.tessla.teSSLa.expression;
 import de.uniluebeck.isp.tessla.teSSLa.in;
 import de.uniluebeck.isp.tessla.teSSLa.out;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
 import de.uniluebeck.isp.tessla.teSSLa.statement;
+import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
+import de.uniluebeck.isp.tessla.teSSLa.value;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -78,6 +78,13 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass typedExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expressionEClass = null;
 
   /**
@@ -85,21 +92,14 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expInfixEClass = null;
+  private EClass valueEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expUnaryEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass expFuncEClass = null;
+  private EClass argEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -192,6 +192,46 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
   public EClass getstatement()
   {
     return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getstatement_Def()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getstatement_Out()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getstatement_In()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getstatement_Comment()
+  {
+    return (EAttribute)statementEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -299,7 +339,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getout_Expression()
+  public EReference getout_Exp()
   {
     return (EReference)outEClass.getEStructuralFeatures().get(0);
   }
@@ -349,6 +389,36 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass gettypedExpression()
+  {
+    return typedExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference gettypedExpression_Exp()
+  {
+    return (EReference)typedExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute gettypedExpression_Type()
+  {
+    return (EAttribute)typedExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getexpression()
   {
     return expressionEClass;
@@ -359,7 +429,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getexpression_Infix()
+  public EReference getexpression_If()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
   }
@@ -369,9 +439,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpression_Type()
+  public EReference getexpression_Then()
   {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -379,9 +449,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getexpInfix()
+  public EReference getexpression_Else()
   {
-    return expInfixEClass;
+    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -389,9 +459,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getexpInfix_Unary()
+  public EReference getexpression_Val()
   {
-    return (EReference)expInfixEClass.getEStructuralFeatures().get(0);
+    return (EReference)expressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -399,9 +469,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpInfix_Operator()
+  public EAttribute getexpression_Infix()
   {
-    return (EAttribute)expInfixEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -409,9 +479,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpInfix_Type()
+  public EClass getvalue()
   {
-    return (EAttribute)expInfixEClass.getEStructuralFeatures().get(2);
+    return valueEClass;
   }
 
   /**
@@ -419,9 +489,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getexpUnary()
+  public EAttribute getvalue_Op()
   {
-    return expUnaryEClass;
+    return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -429,9 +499,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpUnary_Operator()
+  public EReference getvalue_Exp()
   {
-    return (EAttribute)expUnaryEClass.getEStructuralFeatures().get(0);
+    return (EReference)valueEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -439,9 +509,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getexpUnary_Value()
+  public EReference getvalue_Statements()
   {
-    return (EReference)expUnaryEClass.getEStructuralFeatures().get(1);
+    return (EReference)valueEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -449,9 +519,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpUnary_Type()
+  public EAttribute getvalue_Name()
   {
-    return (EAttribute)expUnaryEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)valueEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -459,9 +529,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getexpFunc()
+  public EReference getvalue_Args()
   {
-    return expFuncEClass;
+    return (EReference)valueEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -469,9 +539,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpFunc_Name()
+  public EAttribute getvalue_Val()
   {
-    return (EAttribute)expFuncEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)valueEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -479,9 +549,9 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getexpFunc_Params()
+  public EClass getarg()
   {
-    return (EReference)expFuncEClass.getEStructuralFeatures().get(1);
+    return argEClass;
   }
 
   /**
@@ -489,9 +559,19 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpFunc_Type()
+  public EAttribute getarg_Arg()
   {
-    return (EAttribute)expFuncEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)argEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getarg_Exp()
+  {
+    return (EReference)argEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -528,6 +608,10 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
     createEReference(modelEClass, MODEL__SPEC);
 
     statementEClass = createEClass(STATEMENT);
+    createEReference(statementEClass, STATEMENT__DEF);
+    createEReference(statementEClass, STATEMENT__OUT);
+    createEReference(statementEClass, STATEMENT__IN);
+    createEAttribute(statementEClass, STATEMENT__COMMENT);
 
     definitionEClass = createEClass(DEFINITION);
     createEAttribute(definitionEClass, DEFINITION__DEF);
@@ -541,31 +625,35 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
     createEAttribute(paramListEClass, PARAM_LIST__TYPES);
 
     outEClass = createEClass(OUT);
-    createEReference(outEClass, OUT__EXPRESSION);
+    createEReference(outEClass, OUT__EXP);
     createEAttribute(outEClass, OUT__NAME);
 
     inEClass = createEClass(IN);
     createEAttribute(inEClass, IN__NAME);
     createEAttribute(inEClass, IN__TYPE);
 
+    typedExpressionEClass = createEClass(TYPED_EXPRESSION);
+    createEReference(typedExpressionEClass, TYPED_EXPRESSION__EXP);
+    createEAttribute(typedExpressionEClass, TYPED_EXPRESSION__TYPE);
+
     expressionEClass = createEClass(EXPRESSION);
-    createEReference(expressionEClass, EXPRESSION__INFIX);
-    createEAttribute(expressionEClass, EXPRESSION__TYPE);
+    createEReference(expressionEClass, EXPRESSION__IF);
+    createEReference(expressionEClass, EXPRESSION__THEN);
+    createEReference(expressionEClass, EXPRESSION__ELSE);
+    createEReference(expressionEClass, EXPRESSION__VAL);
+    createEAttribute(expressionEClass, EXPRESSION__INFIX);
 
-    expInfixEClass = createEClass(EXP_INFIX);
-    createEReference(expInfixEClass, EXP_INFIX__UNARY);
-    createEAttribute(expInfixEClass, EXP_INFIX__OPERATOR);
-    createEAttribute(expInfixEClass, EXP_INFIX__TYPE);
+    valueEClass = createEClass(VALUE);
+    createEAttribute(valueEClass, VALUE__OP);
+    createEReference(valueEClass, VALUE__EXP);
+    createEReference(valueEClass, VALUE__STATEMENTS);
+    createEAttribute(valueEClass, VALUE__NAME);
+    createEReference(valueEClass, VALUE__ARGS);
+    createEAttribute(valueEClass, VALUE__VAL);
 
-    expUnaryEClass = createEClass(EXP_UNARY);
-    createEAttribute(expUnaryEClass, EXP_UNARY__OPERATOR);
-    createEReference(expUnaryEClass, EXP_UNARY__VALUE);
-    createEAttribute(expUnaryEClass, EXP_UNARY__TYPE);
-
-    expFuncEClass = createEClass(EXP_FUNC);
-    createEAttribute(expFuncEClass, EXP_FUNC__NAME);
-    createEReference(expFuncEClass, EXP_FUNC__PARAMS);
-    createEAttribute(expFuncEClass, EXP_FUNC__TYPE);
+    argEClass = createEClass(ARG);
+    createEAttribute(argEClass, ARG__ARG);
+    createEReference(argEClass, ARG__EXP);
   }
 
   /**
@@ -597,21 +685,22 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    definitionEClass.getESuperTypes().add(this.getstatement());
-    outEClass.getESuperTypes().add(this.getstatement());
-    inEClass.getESuperTypes().add(this.getstatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Spec(), this.getstatement(), null, "spec", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, statement.class, "statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getstatement_Def(), this.getdefinition(), null, "def", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getstatement_Out(), this.getout(), null, "out", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getstatement_In(), this.getin(), null, "in", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getstatement_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionEClass, definition.class, "definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getdefinition_Def(), ecorePackage.getEString(), "def", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getdefinition_ParamList(), this.getparamList(), null, "paramList", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getdefinition_Type(), ecorePackage.getEString(), "type", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getdefinition_Expression(), this.getexpression(), null, "expression", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getdefinition_Expression(), ecorePackage.getEObject(), null, "expression", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getdefinition_Statements(), this.getstatement(), null, "statements", null, 0, -1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paramListEClass, paramList.class, "paramList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -619,31 +708,35 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
     initEAttribute(getparamList_Types(), ecorePackage.getEString(), "types", null, 0, -1, paramList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(outEClass, out.class, "out", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getout_Expression(), this.getexpression(), null, "expression", null, 0, 1, out.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getout_Exp(), this.gettypedExpression(), null, "exp", null, 0, 1, out.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getout_Name(), ecorePackage.getEString(), "name", null, 0, 1, out.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(inEClass, in.class, "in", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getin_Name(), ecorePackage.getEString(), "name", null, 0, 1, in.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getin_Type(), ecorePackage.getEString(), "type", null, 0, 1, in.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(typedExpressionEClass, typedExpression.class, "typedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(gettypedExpression_Exp(), this.getexpression(), null, "exp", null, 0, 1, typedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(gettypedExpression_Type(), ecorePackage.getEString(), "type", null, 0, 1, typedExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(expressionEClass, expression.class, "expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getexpression_Infix(), this.getexpInfix(), null, "infix", null, 0, -1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getexpression_Type(), ecorePackage.getEString(), "type", null, 0, 1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getexpression_If(), this.gettypedExpression(), null, "if", null, 0, 1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getexpression_Then(), this.gettypedExpression(), null, "then", null, 0, 1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getexpression_Else(), this.gettypedExpression(), null, "else", null, 0, 1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getexpression_Val(), this.getvalue(), null, "val", null, 0, -1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getexpression_Infix(), ecorePackage.getEString(), "infix", null, 0, -1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expInfixEClass, expInfix.class, "expInfix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getexpInfix_Unary(), this.getexpUnary(), null, "unary", null, 0, -1, expInfix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getexpInfix_Operator(), ecorePackage.getEString(), "operator", null, 0, -1, expInfix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getexpInfix_Type(), ecorePackage.getEString(), "type", null, 0, 1, expInfix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(valueEClass, value.class, "value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getvalue_Op(), ecorePackage.getEString(), "op", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getvalue_Exp(), this.gettypedExpression(), null, "exp", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getvalue_Statements(), this.getstatement(), null, "statements", null, 0, -1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvalue_Name(), ecorePackage.getEString(), "name", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getvalue_Args(), this.getarg(), null, "args", null, 0, -1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvalue_Val(), ecorePackage.getEInt(), "val", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expUnaryEClass, expUnary.class, "expUnary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getexpUnary_Operator(), ecorePackage.getEString(), "operator", null, 0, 1, expUnary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getexpUnary_Value(), this.getexpFunc(), null, "value", null, 0, 1, expUnary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getexpUnary_Type(), ecorePackage.getEString(), "type", null, 0, 1, expUnary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(expFuncEClass, expFunc.class, "expFunc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getexpFunc_Name(), ecorePackage.getEString(), "name", null, 0, 1, expFunc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getexpFunc_Params(), this.getexpression(), null, "params", null, 0, -1, expFunc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getexpFunc_Type(), ecorePackage.getEString(), "type", null, 0, 1, expFunc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(argEClass, arg.class, "arg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getarg_Arg(), ecorePackage.getEString(), "arg", null, 0, 1, arg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getarg_Exp(), this.gettypedExpression(), null, "exp", null, 0, 1, arg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

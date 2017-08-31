@@ -4,8 +4,8 @@
 package de.uniluebeck.isp.tessla.teSSLa.impl;
 
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
-import de.uniluebeck.isp.tessla.teSSLa.expFunc;
-import de.uniluebeck.isp.tessla.teSSLa.expUnary;
+import de.uniluebeck.isp.tessla.teSSLa.expression;
+import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,50 +18,29 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>exp Unary</b></em>'.
+ * An implementation of the model object '<em><b>typed Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl#getValue <em>Value</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expUnaryImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.typedExpressionImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.typedExpressionImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUnary
+public class typedExpressionImpl extends MinimalEObjectImpl.Container implements typedExpression
 {
   /**
-   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperator()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected static final String OPERATOR_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperator()
-   * @generated
-   * @ordered
-   */
-  protected String operator = OPERATOR_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected expFunc value;
+  protected expression exp;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -88,7 +67,7 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
    * <!-- end-user-doc -->
    * @generated
    */
-  protected expUnaryImpl()
+  protected typedExpressionImpl()
   {
     super();
   }
@@ -101,7 +80,7 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
   @Override
   protected EClass eStaticClass()
   {
-    return TeSSLaPackage.Literals.EXP_UNARY;
+    return TeSSLaPackage.Literals.TYPED_EXPRESSION;
   }
 
   /**
@@ -109,9 +88,9 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getOperator()
+  public expression getExp()
   {
-    return operator;
+    return exp;
   }
 
   /**
@@ -119,36 +98,13 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOperator(String newOperator)
+  public NotificationChain basicSetExp(expression newExp, NotificationChain msgs)
   {
-    String oldOperator = operator;
-    operator = newOperator;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXP_UNARY__OPERATOR, oldOperator, operator));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public expFunc getValue()
-  {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetValue(expFunc newValue, NotificationChain msgs)
-  {
-    expFunc oldValue = value;
-    value = newValue;
+    expression oldExp = exp;
+    exp = newExp;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXP_UNARY__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.TYPED_EXPRESSION__EXP, oldExp, newExp);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -159,20 +115,20 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(expFunc newValue)
+  public void setExp(expression newExp)
   {
-    if (newValue != value)
+    if (newExp != exp)
     {
       NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXP_UNARY__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXP_UNARY__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.TYPED_EXPRESSION__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.TYPED_EXPRESSION__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXP_UNARY__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.TYPED_EXPRESSION__EXP, newExp, newExp));
   }
 
   /**
@@ -195,7 +151,7 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
     String oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXP_UNARY__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.TYPED_EXPRESSION__TYPE, oldType, type));
   }
 
   /**
@@ -208,8 +164,8 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
   {
     switch (featureID)
     {
-      case TeSSLaPackage.EXP_UNARY__VALUE:
-        return basicSetValue(null, msgs);
+      case TeSSLaPackage.TYPED_EXPRESSION__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -224,11 +180,9 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
   {
     switch (featureID)
     {
-      case TeSSLaPackage.EXP_UNARY__OPERATOR:
-        return getOperator();
-      case TeSSLaPackage.EXP_UNARY__VALUE:
-        return getValue();
-      case TeSSLaPackage.EXP_UNARY__TYPE:
+      case TeSSLaPackage.TYPED_EXPRESSION__EXP:
+        return getExp();
+      case TeSSLaPackage.TYPED_EXPRESSION__TYPE:
         return getType();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -244,13 +198,10 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
   {
     switch (featureID)
     {
-      case TeSSLaPackage.EXP_UNARY__OPERATOR:
-        setOperator((String)newValue);
+      case TeSSLaPackage.TYPED_EXPRESSION__EXP:
+        setExp((expression)newValue);
         return;
-      case TeSSLaPackage.EXP_UNARY__VALUE:
-        setValue((expFunc)newValue);
-        return;
-      case TeSSLaPackage.EXP_UNARY__TYPE:
+      case TeSSLaPackage.TYPED_EXPRESSION__TYPE:
         setType((String)newValue);
         return;
     }
@@ -267,13 +218,10 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
   {
     switch (featureID)
     {
-      case TeSSLaPackage.EXP_UNARY__OPERATOR:
-        setOperator(OPERATOR_EDEFAULT);
+      case TeSSLaPackage.TYPED_EXPRESSION__EXP:
+        setExp((expression)null);
         return;
-      case TeSSLaPackage.EXP_UNARY__VALUE:
-        setValue((expFunc)null);
-        return;
-      case TeSSLaPackage.EXP_UNARY__TYPE:
+      case TeSSLaPackage.TYPED_EXPRESSION__TYPE:
         setType(TYPE_EDEFAULT);
         return;
     }
@@ -290,11 +238,9 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
   {
     switch (featureID)
     {
-      case TeSSLaPackage.EXP_UNARY__OPERATOR:
-        return OPERATOR_EDEFAULT == null ? operator != null : !OPERATOR_EDEFAULT.equals(operator);
-      case TeSSLaPackage.EXP_UNARY__VALUE:
-        return value != null;
-      case TeSSLaPackage.EXP_UNARY__TYPE:
+      case TeSSLaPackage.TYPED_EXPRESSION__EXP:
+        return exp != null;
+      case TeSSLaPackage.TYPED_EXPRESSION__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
@@ -311,12 +257,10 @@ public class expUnaryImpl extends MinimalEObjectImpl.Container implements expUna
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (operator: ");
-    result.append(operator);
-    result.append(", type: ");
+    result.append(" (type: ");
     result.append(type);
     result.append(')');
     return result.toString();
   }
 
-} //expUnaryImpl
+} //typedExpressionImpl

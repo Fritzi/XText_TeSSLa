@@ -78,6 +78,15 @@ public interface TeSSLaFactory extends EFactory
   in createin();
 
   /**
+   * Returns a new object of class '<em>typed Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>typed Expression</em>'.
+   * @generated
+   */
+  typedExpression createtypedExpression();
+
+  /**
    * Returns a new object of class '<em>expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -87,31 +96,22 @@ public interface TeSSLaFactory extends EFactory
   expression createexpression();
 
   /**
-   * Returns a new object of class '<em>exp Infix</em>'.
+   * Returns a new object of class '<em>value</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>exp Infix</em>'.
+   * @return a new object of class '<em>value</em>'.
    * @generated
    */
-  expInfix createexpInfix();
+  value createvalue();
 
   /**
-   * Returns a new object of class '<em>exp Unary</em>'.
+   * Returns a new object of class '<em>arg</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>exp Unary</em>'.
+   * @return a new object of class '<em>arg</em>'.
    * @generated
    */
-  expUnary createexpUnary();
-
-  /**
-   * Returns a new object of class '<em>exp Func</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>exp Func</em>'.
-   * @generated
-   */
-  expFunc createexpFunc();
+  arg createarg();
 
   /**
    * Returns the package supported by this factory.

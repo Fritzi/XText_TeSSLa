@@ -3,6 +3,7 @@
  */
 package de.uniluebeck.isp.tessla.teSSLa;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +14,7 @@ package de.uniluebeck.isp.tessla.teSSLa;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.out#getExpression <em>Expression</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.out#getExp <em>Exp</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.out#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -21,33 +22,33 @@ package de.uniluebeck.isp.tessla.teSSLa;
  * @model
  * @generated
  */
-public interface out extends statement
+public interface out extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference.
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expression</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(expression)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getout_Expression()
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(typedExpression)
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getout_Exp()
    * @model containment="true"
    * @generated
    */
-  expression getExpression();
+  typedExpression getExp();
 
   /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.out#getExpression <em>Expression</em>}' containment reference.
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.out#getExp <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expression</em>' containment reference.
-   * @see #getExpression()
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
    * @generated
    */
-  void setExpression(expression value);
+  void setExp(typedExpression value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

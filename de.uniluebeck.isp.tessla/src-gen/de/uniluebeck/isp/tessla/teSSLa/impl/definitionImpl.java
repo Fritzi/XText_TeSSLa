@@ -5,7 +5,6 @@ package de.uniluebeck.isp.tessla.teSSLa.impl;
 
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
-import de.uniluebeck.isp.tessla.teSSLa.expression;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
 import de.uniluebeck.isp.tessla.teSSLa.statement;
 
@@ -17,9 +16,11 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -41,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class definitionImpl extends statementImpl implements definition
+public class definitionImpl extends MinimalEObjectImpl.Container implements definition
 {
   /**
    * The default value of the '{@link #getDef() <em>Def</em>}' attribute.
@@ -101,7 +102,7 @@ public class definitionImpl extends statementImpl implements definition
    * @generated
    * @ordered
    */
-  protected expression expression;
+  protected EObject expression;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -233,7 +234,7 @@ public class definitionImpl extends statementImpl implements definition
    * <!-- end-user-doc -->
    * @generated
    */
-  public expression getExpression()
+  public EObject getExpression()
   {
     return expression;
   }
@@ -243,9 +244,9 @@ public class definitionImpl extends statementImpl implements definition
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(expression newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(EObject newExpression, NotificationChain msgs)
   {
-    expression oldExpression = expression;
+    EObject oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -260,7 +261,7 @@ public class definitionImpl extends statementImpl implements definition
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(expression newExpression)
+  public void setExpression(EObject newExpression)
   {
     if (newExpression != expression)
     {
@@ -355,7 +356,7 @@ public class definitionImpl extends statementImpl implements definition
         setType((String)newValue);
         return;
       case TeSSLaPackage.DEFINITION__EXPRESSION:
-        setExpression((expression)newValue);
+        setExpression((EObject)newValue);
         return;
       case TeSSLaPackage.DEFINITION__STATEMENTS:
         getStatements().clear();
@@ -385,7 +386,7 @@ public class definitionImpl extends statementImpl implements definition
         setType(TYPE_EDEFAULT);
         return;
       case TeSSLaPackage.DEFINITION__EXPRESSION:
-        setExpression((expression)null);
+        setExpression((EObject)null);
         return;
       case TeSSLaPackage.DEFINITION__STATEMENTS:
         getStatements().clear();

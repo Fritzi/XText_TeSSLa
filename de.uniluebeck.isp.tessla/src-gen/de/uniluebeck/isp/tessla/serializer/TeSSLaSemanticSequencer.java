@@ -7,14 +7,15 @@ import com.google.inject.Inject;
 import de.uniluebeck.isp.tessla.services.TeSSLaGrammarAccess;
 import de.uniluebeck.isp.tessla.teSSLa.Model;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
+import de.uniluebeck.isp.tessla.teSSLa.arg;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
-import de.uniluebeck.isp.tessla.teSSLa.expFunc;
-import de.uniluebeck.isp.tessla.teSSLa.expInfix;
-import de.uniluebeck.isp.tessla.teSSLa.expUnary;
 import de.uniluebeck.isp.tessla.teSSLa.expression;
 import de.uniluebeck.isp.tessla.teSSLa.in;
 import de.uniluebeck.isp.tessla.teSSLa.out;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
+import de.uniluebeck.isp.tessla.teSSLa.statement;
+import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
+import de.uniluebeck.isp.tessla.teSSLa.value;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -43,17 +44,11 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TeSSLaPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
+			case TeSSLaPackage.ARG:
+				sequence_arg(context, (arg) semanticObject); 
+				return; 
 			case TeSSLaPackage.DEFINITION:
 				sequence_definition(context, (definition) semanticObject); 
-				return; 
-			case TeSSLaPackage.EXP_FUNC:
-				sequence_expFunc(context, (expFunc) semanticObject); 
-				return; 
-			case TeSSLaPackage.EXP_INFIX:
-				sequence_expInfix(context, (expInfix) semanticObject); 
-				return; 
-			case TeSSLaPackage.EXP_UNARY:
-				sequence_expUnary(context, (expUnary) semanticObject); 
 				return; 
 			case TeSSLaPackage.EXPRESSION:
 				sequence_expression(context, (expression) semanticObject); 
@@ -66,6 +61,15 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case TeSSLaPackage.PARAM_LIST:
 				sequence_paramList(context, (paramList) semanticObject); 
+				return; 
+			case TeSSLaPackage.STATEMENT:
+				sequence_statement(context, (statement) semanticObject); 
+				return; 
+			case TeSSLaPackage.TYPED_EXPRESSION:
+				sequence_typedExpression(context, (typedExpression) semanticObject); 
+				return; 
+			case TeSSLaPackage.VALUE:
+				sequence_value(context, (value) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -86,49 +90,24 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     statement returns definition
+	 *     arg returns arg
+	 *
+	 * Constraint:
+	 *     ((arg=ID exp=typedExpression) | exp=typedExpression)
+	 */
+	protected void sequence_arg(ISerializationContext context, arg semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     definition returns definition
 	 *
 	 * Constraint:
-	 *     (def=ID paramList=paramList? type=type? (expression=expression | (statements+=statement* expression=expression)))
+	 *     (def=ID paramList=paramList? type=type? (expression=typedExpression | (statements+=statement* expression=expression)))
 	 */
 	protected void sequence_definition(ISerializationContext context, definition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     expFunc returns expFunc
-	 *
-	 * Constraint:
-	 *     ((name=ID (params+=expression params+=expression*)? type=type?) | (name=expLit type=type?))
-	 */
-	protected void sequence_expFunc(ISerializationContext context, expFunc semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     expInfix returns expInfix
-	 *
-	 * Constraint:
-	 *     (unary+=expUnary (operator+=infixOperator unary+=expUnary)* type=type?)
-	 */
-	protected void sequence_expInfix(ISerializationContext context, expInfix semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     expUnary returns expUnary
-	 *
-	 * Constraint:
-	 *     (operator=unaryOperator? value=expFunc type=type?)
-	 */
-	protected void sequence_expUnary(ISerializationContext context, expUnary semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -138,7 +117,7 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     expression returns expression
 	 *
 	 * Constraint:
-	 *     (infix+=expInfix* infix+=expInfix (infix+=expInfix* infix+=expInfix)* type=type?)
+	 *     ((if=typedExpression then=typedExpression else=typedExpression?) | (val+=value (infix+=infixOperator val+=value)*))
 	 */
 	protected void sequence_expression(ISerializationContext context, expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -147,7 +126,6 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     statement returns in
 	 *     in returns in
 	 *
 	 * Constraint:
@@ -169,11 +147,10 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     statement returns out
 	 *     out returns out
 	 *
 	 * Constraint:
-	 *     (expression=expression name=ID?)
+	 *     (exp=typedExpression name=ID?)
 	 */
 	protected void sequence_out(ISerializationContext context, out semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -188,6 +165,50 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (params+=ID types+=type? (params+=ID types+=type?)*)?
 	 */
 	protected void sequence_paramList(ISerializationContext context, paramList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     statement returns statement
+	 *
+	 * Constraint:
+	 *     (def=definition | out=out | in=in | comment=SL_COMMENT)
+	 */
+	protected void sequence_statement(ISerializationContext context, statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     typedExpression returns typedExpression
+	 *
+	 * Constraint:
+	 *     (exp=expression type=type?)
+	 */
+	protected void sequence_typedExpression(ISerializationContext context, typedExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     value returns value
+	 *
+	 * Constraint:
+	 *     (
+	 *         (op=unaryOperator exp=typedExpression) | 
+	 *         exp=typedExpression | 
+	 *         (statements+=statement* exp=typedExpression) | 
+	 *         (name=ID (args+=arg args+=arg*)?) | 
+	 *         name=ID | 
+	 *         name=STRING | 
+	 *         val=INT
+	 *     )?
+	 */
+	protected void sequence_value(ISerializationContext context, value semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

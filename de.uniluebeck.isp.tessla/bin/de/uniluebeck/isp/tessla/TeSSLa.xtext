@@ -6,7 +6,7 @@ Model:
 	spec += statement*;
 
 statement:
-	definition | out | in | SL_COMMENT
+	{statement} (def=definition | out=out | in=in | comment=SL_COMMENT)
 ;
   
 @Override 
@@ -15,66 +15,50 @@ terminal SL_COMMENT:
 ;  
   
 definition:
-	('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=expression | '{' statements+=statement* expression=expression'}')
+	('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{' statements+=statement* expression=expression'}')
 ;
 
 paramList:
-	{paramList} '(' params+=ID (':' types+=type)? (',' params+=ID (':' types+=type)?)* ')'
-	| {paramList} '(' ')'
-;
+	{paramList} (
+	'(' params+=ID (':' types+=type)? (',' params+=ID (':' types+=type)?)* ')'
+	| '(' ')'
+);
 
 out:
-	'out' expression=expression ('as' name=ID)?
+	'out' exp=typedExpression ('as' name=ID)?
 ;
 	
 in:
 	'in' name=ID ':' type=type
 ;
 
+typedExpression:
+	exp=expression (':' type=type)?
+;
+
 expression:
-//	'if' expression 'then' expression ('else' expression)?
-//	| expression ':' type
-//	| expression infixOperator expression
-//	| unaryOperator expression
-//	| '(' expression ')'
-//	| '{' expression '}'
-//	| ID '(' (arg (',' arg)*)? ')'
-//	| ID
-//	| STRING
-//	| INT
-//	| '()'
-//	| 'true'
-//	| 'false'
-	(('if' infix+=expInfix 'then')* infix+=expInfix ('else' ('if' infix+=expInfix 'then')* infix+=expInfix)* (':' type=type)?)
-	| (ID '=' expression)
+	'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)?
+	| val+=value (infix+=infixOperator val+=value)*
 ;
 
-expInfix:
-	unary+=expUnary (operator+=infixOperator unary+=expUnary)* (':' type=type)?
-;
-
-expUnary:
-	(operator=unaryOperator)? value=expFunc (':' type=type)?
-;
-
-expFunc:
-	(name=ID '(' (params+=expression (',' params+=expression)*)? ')' (':' type=type)?)
-	| (name=expLit (':' type=type)?)
-;
-
-expLit:
-	ID
-	| STRING
-	| INT
+value:
+	{value}
+	(op=unaryOperator exp=typedExpression
+	| '(' exp=typedExpression ')'
+	| '{' statements+=statement* exp=typedExpression '}'
+	| name=ID '(' (args+=arg (',' args+=arg)*)? ')'
+	| name=ID
+	| name=STRING
+	| val=INT
 	| '()' 
 	| 'true' 
-	| 'false' 
+	| 'false')
 ;
 	
-//arg:
-//	ID '=' expression
-//	| expression
-//;
+arg:
+	arg=ID '=' exp=typedExpression
+	| exp=typedExpression
+;
 
 type:
 	(ID '<' type (',' type)* '>')
@@ -98,6 +82,8 @@ infixOperator:
 	| '-'
 	| '*'
 	| '/'
+	| '&&'
+	| '||'
 ;
 
 unaryOperator:

@@ -4,7 +4,7 @@
 package de.uniluebeck.isp.tessla.teSSLa.impl;
 
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
-import de.uniluebeck.isp.tessla.teSSLa.out;
+import de.uniluebeck.isp.tessla.teSSLa.arg;
 import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,20 +18,40 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>out</b></em>'.
+ * An implementation of the model object '<em><b>arg</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.outImpl#getExp <em>Exp</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.outImpl#getName <em>Name</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.argImpl#getArg <em>Arg</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.argImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class outImpl extends MinimalEObjectImpl.Container implements out
+public class argImpl extends MinimalEObjectImpl.Container implements arg
 {
+  /**
+   * The default value of the '{@link #getArg() <em>Arg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArg()
+   * @generated
+   * @ordered
+   */
+  protected static final String ARG_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getArg() <em>Arg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArg()
+   * @generated
+   * @ordered
+   */
+  protected String arg = ARG_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -43,31 +63,11 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   protected typedExpression exp;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected outImpl()
+  protected argImpl()
   {
     super();
   }
@@ -80,7 +80,30 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   @Override
   protected EClass eStaticClass()
   {
-    return TeSSLaPackage.Literals.OUT;
+    return TeSSLaPackage.Literals.ARG;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getArg()
+  {
+    return arg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArg(String newArg)
+  {
+    String oldArg = arg;
+    arg = newArg;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.ARG__ARG, oldArg, arg));
   }
 
   /**
@@ -104,7 +127,7 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
     exp = newExp;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.OUT__EXP, oldExp, newExp);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.ARG__EXP, oldExp, newExp);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -121,37 +144,14 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
     {
       NotificationChain msgs = null;
       if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.OUT__EXP, null, msgs);
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.ARG__EXP, null, msgs);
       if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.OUT__EXP, null, msgs);
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.ARG__EXP, null, msgs);
       msgs = basicSetExp(newExp, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.OUT__EXP, newExp, newExp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.OUT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.ARG__EXP, newExp, newExp));
   }
 
   /**
@@ -164,7 +164,7 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   {
     switch (featureID)
     {
-      case TeSSLaPackage.OUT__EXP:
+      case TeSSLaPackage.ARG__EXP:
         return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -180,10 +180,10 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   {
     switch (featureID)
     {
-      case TeSSLaPackage.OUT__EXP:
+      case TeSSLaPackage.ARG__ARG:
+        return getArg();
+      case TeSSLaPackage.ARG__EXP:
         return getExp();
-      case TeSSLaPackage.OUT__NAME:
-        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -198,11 +198,11 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   {
     switch (featureID)
     {
-      case TeSSLaPackage.OUT__EXP:
-        setExp((typedExpression)newValue);
+      case TeSSLaPackage.ARG__ARG:
+        setArg((String)newValue);
         return;
-      case TeSSLaPackage.OUT__NAME:
-        setName((String)newValue);
+      case TeSSLaPackage.ARG__EXP:
+        setExp((typedExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -218,11 +218,11 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   {
     switch (featureID)
     {
-      case TeSSLaPackage.OUT__EXP:
-        setExp((typedExpression)null);
+      case TeSSLaPackage.ARG__ARG:
+        setArg(ARG_EDEFAULT);
         return;
-      case TeSSLaPackage.OUT__NAME:
-        setName(NAME_EDEFAULT);
+      case TeSSLaPackage.ARG__EXP:
+        setExp((typedExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -238,10 +238,10 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
   {
     switch (featureID)
     {
-      case TeSSLaPackage.OUT__EXP:
+      case TeSSLaPackage.ARG__ARG:
+        return ARG_EDEFAULT == null ? arg != null : !ARG_EDEFAULT.equals(arg);
+      case TeSSLaPackage.ARG__EXP:
         return exp != null;
-      case TeSSLaPackage.OUT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -257,10 +257,10 @@ public class outImpl extends MinimalEObjectImpl.Container implements out
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (arg: ");
+    result.append(arg);
     result.append(')');
     return result.toString();
   }
 
-} //outImpl
+} //argImpl

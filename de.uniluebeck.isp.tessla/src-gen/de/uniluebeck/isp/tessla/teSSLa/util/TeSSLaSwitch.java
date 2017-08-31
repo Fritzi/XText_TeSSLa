@@ -91,7 +91,6 @@ public class TeSSLaSwitch<T> extends Switch<T>
       {
         definition definition = (definition)theEObject;
         T result = casedefinition(definition);
-        if (result == null) result = casestatement(definition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -106,7 +105,6 @@ public class TeSSLaSwitch<T> extends Switch<T>
       {
         out out = (out)theEObject;
         T result = caseout(out);
-        if (result == null) result = casestatement(out);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -114,7 +112,13 @@ public class TeSSLaSwitch<T> extends Switch<T>
       {
         in in = (in)theEObject;
         T result = casein(in);
-        if (result == null) result = casestatement(in);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TeSSLaPackage.TYPED_EXPRESSION:
+      {
+        typedExpression typedExpression = (typedExpression)theEObject;
+        T result = casetypedExpression(typedExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,24 +129,17 @@ public class TeSSLaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TeSSLaPackage.EXP_INFIX:
+      case TeSSLaPackage.VALUE:
       {
-        expInfix expInfix = (expInfix)theEObject;
-        T result = caseexpInfix(expInfix);
+        value value = (value)theEObject;
+        T result = casevalue(value);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case TeSSLaPackage.EXP_UNARY:
+      case TeSSLaPackage.ARG:
       {
-        expUnary expUnary = (expUnary)theEObject;
-        T result = caseexpUnary(expUnary);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case TeSSLaPackage.EXP_FUNC:
-      {
-        expFunc expFunc = (expFunc)theEObject;
-        T result = caseexpFunc(expFunc);
+        arg arg = (arg)theEObject;
+        T result = casearg(arg);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -247,6 +244,22 @@ public class TeSSLaSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>typed Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>typed Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casetypedExpression(typedExpression object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -263,49 +276,33 @@ public class TeSSLaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>exp Infix</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>value</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>exp Infix</em>'.
+   * @return the result of interpreting the object as an instance of '<em>value</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseexpInfix(expInfix object)
+  public T casevalue(value object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>exp Unary</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>arg</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>exp Unary</em>'.
+   * @return the result of interpreting the object as an instance of '<em>arg</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseexpUnary(expUnary object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>exp Func</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>exp Func</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseexpFunc(expFunc object)
+  public T casearg(arg object)
   {
     return null;
   }

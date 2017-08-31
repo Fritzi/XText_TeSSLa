@@ -71,10 +71,10 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
       case TeSSLaPackage.PARAM_LIST: return createparamList();
       case TeSSLaPackage.OUT: return createout();
       case TeSSLaPackage.IN: return createin();
+      case TeSSLaPackage.TYPED_EXPRESSION: return createtypedExpression();
       case TeSSLaPackage.EXPRESSION: return createexpression();
-      case TeSSLaPackage.EXP_INFIX: return createexpInfix();
-      case TeSSLaPackage.EXP_UNARY: return createexpUnary();
-      case TeSSLaPackage.EXP_FUNC: return createexpFunc();
+      case TeSSLaPackage.VALUE: return createvalue();
+      case TeSSLaPackage.ARG: return createarg();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -151,6 +151,17 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public typedExpression createtypedExpression()
+  {
+    typedExpressionImpl typedExpression = new typedExpressionImpl();
+    return typedExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public expression createexpression()
   {
     expressionImpl expression = new expressionImpl();
@@ -162,10 +173,10 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public expInfix createexpInfix()
+  public value createvalue()
   {
-    expInfixImpl expInfix = new expInfixImpl();
-    return expInfix;
+    valueImpl value = new valueImpl();
+    return value;
   }
 
   /**
@@ -173,21 +184,10 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public expUnary createexpUnary()
+  public arg createarg()
   {
-    expUnaryImpl expUnary = new expUnaryImpl();
-    return expUnary;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public expFunc createexpFunc()
-  {
-    expFuncImpl expFunc = new expFuncImpl();
-    return expFunc;
+    argImpl arg = new argImpl();
+    return arg;
   }
 
   /**

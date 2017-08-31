@@ -10,6 +10,15 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>statement</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getDef <em>Def</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getOut <em>Out</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getIn <em>In</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getComment <em>Comment</em>}</li>
+ * </ul>
  *
  * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement()
  * @model
@@ -17,4 +26,108 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface statement extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Def</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Def</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Def</em>' containment reference.
+   * @see #setDef(definition)
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_Def()
+   * @model containment="true"
+   * @generated
+   */
+  definition getDef();
+
+  /**
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getDef <em>Def</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Def</em>' containment reference.
+   * @see #getDef()
+   * @generated
+   */
+  void setDef(definition value);
+
+  /**
+   * Returns the value of the '<em><b>Out</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Out</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Out</em>' containment reference.
+   * @see #setOut(out)
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_Out()
+   * @model containment="true"
+   * @generated
+   */
+  out getOut();
+
+  /**
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getOut <em>Out</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Out</em>' containment reference.
+   * @see #getOut()
+   * @generated
+   */
+  void setOut(out value);
+
+  /**
+   * Returns the value of the '<em><b>In</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>In</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>In</em>' containment reference.
+   * @see #setIn(in)
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_In()
+   * @model containment="true"
+   * @generated
+   */
+  in getIn();
+
+  /**
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getIn <em>In</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>In</em>' containment reference.
+   * @see #getIn()
+   * @generated
+   */
+  void setIn(in value);
+
+  /**
+   * Returns the value of the '<em><b>Comment</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Comment</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comment</em>' attribute.
+   * @see #setComment(String)
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_Comment()
+   * @model
+   * @generated
+   */
+  String getComment();
+
+  /**
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getComment <em>Comment</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Comment</em>' attribute.
+   * @see #getComment()
+   * @generated
+   */
+  void setComment(String value);
+
 } // statement

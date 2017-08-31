@@ -5,6 +5,8 @@ package de.uniluebeck.isp.tessla.teSSLa;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>definition</b></em>'.
@@ -25,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface definition extends statement
+public interface definition extends EObject
 {
   /**
    * Returns the value of the '<em><b>Def</b></em>' attribute.
@@ -114,12 +116,12 @@ public interface definition extends statement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(expression)
+   * @see #setExpression(EObject)
    * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getdefinition_Expression()
    * @model containment="true"
    * @generated
    */
-  expression getExpression();
+  EObject getExpression();
 
   /**
    * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.definition#getExpression <em>Expression</em>}' containment reference.
@@ -129,7 +131,7 @@ public interface definition extends statement
    * @see #getExpression()
    * @generated
    */
-  void setExpression(expression value);
+  void setExpression(EObject value);
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.

@@ -4,8 +4,9 @@
 package de.uniluebeck.isp.tessla.teSSLa.impl;
 
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
-import de.uniluebeck.isp.tessla.teSSLa.expInfix;
 import de.uniluebeck.isp.tessla.teSSLa.expression;
+import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
+import de.uniluebeck.isp.tessla.teSSLa.value;
 
 import java.util.Collection;
 
@@ -20,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,8 +33,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl#getIf <em>If</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl#getThen <em>Then</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl#getElse <em>Else</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl#getVal <em>Val</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl#getInfix <em>Infix</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.expressionImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,34 +45,54 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class expressionImpl extends MinimalEObjectImpl.Container implements expression
 {
   /**
-   * The cached value of the '{@link #getInfix() <em>Infix</em>}' containment reference list.
+   * The cached value of the '{@link #getIf() <em>If</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIf()
+   * @generated
+   * @ordered
+   */
+  protected typedExpression if_;
+
+  /**
+   * The cached value of the '{@link #getThen() <em>Then</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getThen()
+   * @generated
+   * @ordered
+   */
+  protected typedExpression then;
+
+  /**
+   * The cached value of the '{@link #getElse() <em>Else</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getElse()
+   * @generated
+   * @ordered
+   */
+  protected typedExpression else_;
+
+  /**
+   * The cached value of the '{@link #getVal() <em>Val</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVal()
+   * @generated
+   * @ordered
+   */
+  protected EList<value> val;
+
+  /**
+   * The cached value of the '{@link #getInfix() <em>Infix</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInfix()
    * @generated
    * @ordered
    */
-  protected EList<expInfix> infix;
-
-  /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
+  protected EList<String> infix;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,36 +120,171 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<expInfix> getInfix()
+  public typedExpression getIf()
+  {
+    return if_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetIf(typedExpression newIf, NotificationChain msgs)
+  {
+    typedExpression oldIf = if_;
+    if_ = newIf;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__IF, oldIf, newIf);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIf(typedExpression newIf)
+  {
+    if (newIf != if_)
+    {
+      NotificationChain msgs = null;
+      if (if_ != null)
+        msgs = ((InternalEObject)if_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXPRESSION__IF, null, msgs);
+      if (newIf != null)
+        msgs = ((InternalEObject)newIf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXPRESSION__IF, null, msgs);
+      msgs = basicSetIf(newIf, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__IF, newIf, newIf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public typedExpression getThen()
+  {
+    return then;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetThen(typedExpression newThen, NotificationChain msgs)
+  {
+    typedExpression oldThen = then;
+    then = newThen;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__THEN, oldThen, newThen);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setThen(typedExpression newThen)
+  {
+    if (newThen != then)
+    {
+      NotificationChain msgs = null;
+      if (then != null)
+        msgs = ((InternalEObject)then).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXPRESSION__THEN, null, msgs);
+      if (newThen != null)
+        msgs = ((InternalEObject)newThen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXPRESSION__THEN, null, msgs);
+      msgs = basicSetThen(newThen, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__THEN, newThen, newThen));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public typedExpression getElse()
+  {
+    return else_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetElse(typedExpression newElse, NotificationChain msgs)
+  {
+    typedExpression oldElse = else_;
+    else_ = newElse;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__ELSE, oldElse, newElse);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setElse(typedExpression newElse)
+  {
+    if (newElse != else_)
+    {
+      NotificationChain msgs = null;
+      if (else_ != null)
+        msgs = ((InternalEObject)else_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXPRESSION__ELSE, null, msgs);
+      if (newElse != null)
+        msgs = ((InternalEObject)newElse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TeSSLaPackage.EXPRESSION__ELSE, null, msgs);
+      msgs = basicSetElse(newElse, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__ELSE, newElse, newElse));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<value> getVal()
+  {
+    if (val == null)
+    {
+      val = new EObjectContainmentEList<value>(value.class, this, TeSSLaPackage.EXPRESSION__VAL);
+    }
+    return val;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getInfix()
   {
     if (infix == null)
     {
-      infix = new EObjectContainmentEList<expInfix>(expInfix.class, this, TeSSLaPackage.EXPRESSION__INFIX);
+      infix = new EDataTypeEList<String>(String.class, this, TeSSLaPackage.EXPRESSION__INFIX);
     }
     return infix;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(String newType)
-  {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.EXPRESSION__TYPE, oldType, type));
   }
 
   /**
@@ -137,8 +297,14 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
   {
     switch (featureID)
     {
-      case TeSSLaPackage.EXPRESSION__INFIX:
-        return ((InternalEList<?>)getInfix()).basicRemove(otherEnd, msgs);
+      case TeSSLaPackage.EXPRESSION__IF:
+        return basicSetIf(null, msgs);
+      case TeSSLaPackage.EXPRESSION__THEN:
+        return basicSetThen(null, msgs);
+      case TeSSLaPackage.EXPRESSION__ELSE:
+        return basicSetElse(null, msgs);
+      case TeSSLaPackage.EXPRESSION__VAL:
+        return ((InternalEList<?>)getVal()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -153,10 +319,16 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
   {
     switch (featureID)
     {
+      case TeSSLaPackage.EXPRESSION__IF:
+        return getIf();
+      case TeSSLaPackage.EXPRESSION__THEN:
+        return getThen();
+      case TeSSLaPackage.EXPRESSION__ELSE:
+        return getElse();
+      case TeSSLaPackage.EXPRESSION__VAL:
+        return getVal();
       case TeSSLaPackage.EXPRESSION__INFIX:
         return getInfix();
-      case TeSSLaPackage.EXPRESSION__TYPE:
-        return getType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,12 +344,22 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
   {
     switch (featureID)
     {
+      case TeSSLaPackage.EXPRESSION__IF:
+        setIf((typedExpression)newValue);
+        return;
+      case TeSSLaPackage.EXPRESSION__THEN:
+        setThen((typedExpression)newValue);
+        return;
+      case TeSSLaPackage.EXPRESSION__ELSE:
+        setElse((typedExpression)newValue);
+        return;
+      case TeSSLaPackage.EXPRESSION__VAL:
+        getVal().clear();
+        getVal().addAll((Collection<? extends value>)newValue);
+        return;
       case TeSSLaPackage.EXPRESSION__INFIX:
         getInfix().clear();
-        getInfix().addAll((Collection<? extends expInfix>)newValue);
-        return;
-      case TeSSLaPackage.EXPRESSION__TYPE:
-        setType((String)newValue);
+        getInfix().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +375,20 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
   {
     switch (featureID)
     {
+      case TeSSLaPackage.EXPRESSION__IF:
+        setIf((typedExpression)null);
+        return;
+      case TeSSLaPackage.EXPRESSION__THEN:
+        setThen((typedExpression)null);
+        return;
+      case TeSSLaPackage.EXPRESSION__ELSE:
+        setElse((typedExpression)null);
+        return;
+      case TeSSLaPackage.EXPRESSION__VAL:
+        getVal().clear();
+        return;
       case TeSSLaPackage.EXPRESSION__INFIX:
         getInfix().clear();
-        return;
-      case TeSSLaPackage.EXPRESSION__TYPE:
-        setType(TYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +404,16 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
   {
     switch (featureID)
     {
+      case TeSSLaPackage.EXPRESSION__IF:
+        return if_ != null;
+      case TeSSLaPackage.EXPRESSION__THEN:
+        return then != null;
+      case TeSSLaPackage.EXPRESSION__ELSE:
+        return else_ != null;
+      case TeSSLaPackage.EXPRESSION__VAL:
+        return val != null && !val.isEmpty();
       case TeSSLaPackage.EXPRESSION__INFIX:
         return infix != null && !infix.isEmpty();
-      case TeSSLaPackage.EXPRESSION__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
     return super.eIsSet(featureID);
   }
@@ -232,8 +429,8 @@ public class expressionImpl extends MinimalEObjectImpl.Container implements expr
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
+    result.append(" (infix: ");
+    result.append(infix);
     result.append(')');
     return result.toString();
   }
