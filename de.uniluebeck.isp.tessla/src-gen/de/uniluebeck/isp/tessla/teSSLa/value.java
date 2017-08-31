@@ -5,8 +5,6 @@ package de.uniluebeck.isp.tessla.teSSLa;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>value</b></em>'.
@@ -21,14 +19,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.value#getStatements <em>Statements</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.value#getName <em>Name</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.value#getArgs <em>Args</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.value#getVal <em>Val</em>}</li>
  * </ul>
  *
  * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getvalue()
  * @model
  * @generated
  */
-public interface value extends EObject
+public interface value extends expression
 {
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.
@@ -139,31 +136,5 @@ public interface value extends EObject
    * @generated
    */
   EList<arg> getArgs();
-
-  /**
-   * Returns the value of the '<em><b>Val</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Val</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Val</em>' attribute.
-   * @see #setVal(int)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getvalue_Val()
-   * @model
-   * @generated
-   */
-  int getVal();
-
-  /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.value#getVal <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Val</em>' attribute.
-   * @see #getVal()
-   * @generated
-   */
-  void setVal(int value);
 
 } // value

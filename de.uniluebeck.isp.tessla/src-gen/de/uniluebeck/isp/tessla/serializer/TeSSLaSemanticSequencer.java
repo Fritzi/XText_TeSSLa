@@ -5,11 +5,12 @@ package de.uniluebeck.isp.tessla.serializer;
 
 import com.google.inject.Inject;
 import de.uniluebeck.isp.tessla.services.TeSSLaGrammarAccess;
+import de.uniluebeck.isp.tessla.teSSLa.IfStatement;
 import de.uniluebeck.isp.tessla.teSSLa.Model;
+import de.uniluebeck.isp.tessla.teSSLa.Operation;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.arg;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
-import de.uniluebeck.isp.tessla.teSSLa.expression;
 import de.uniluebeck.isp.tessla.teSSLa.in;
 import de.uniluebeck.isp.tessla.teSSLa.out;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
@@ -41,17 +42,20 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TeSSLaPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case TeSSLaPackage.IF_STATEMENT:
+				sequence_expression(context, (IfStatement) semanticObject); 
+				return; 
 			case TeSSLaPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case TeSSLaPackage.OPERATION:
+				sequence_expression(context, (Operation) semanticObject); 
 				return; 
 			case TeSSLaPackage.ARG:
 				sequence_arg(context, (arg) semanticObject); 
 				return; 
 			case TeSSLaPackage.DEFINITION:
 				sequence_definition(context, (definition) semanticObject); 
-				return; 
-			case TeSSLaPackage.EXPRESSION:
-				sequence_expression(context, (expression) semanticObject); 
 				return; 
 			case TeSSLaPackage.IN:
 				sequence_in(context, (in) semanticObject); 
@@ -105,7 +109,7 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     definition returns definition
 	 *
 	 * Constraint:
-	 *     (def=ID paramList=paramList? type=type? (expression=typedExpression | (statements+=statement* expression=expression)))
+	 *     (name=ID paramList=paramList? type=type? (expression=typedExpression | (statements+=statement* expression=typedExpression)))
 	 */
 	protected void sequence_definition(ISerializationContext context, definition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -114,13 +118,38 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     expression returns expression
+	 *     expression returns IfStatement
 	 *
 	 * Constraint:
-	 *     ((if=typedExpression then=typedExpression else=typedExpression?) | (val+=value (infix+=infixOperator val+=value)*))
+	 *     (if=typedExpression then=typedExpression else=typedExpression?)
 	 */
-	protected void sequence_expression(ISerializationContext context, expression semanticObject) {
+	protected void sequence_expression(ISerializationContext context, IfStatement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     expression returns Operation
+	 *     expression.Operation_1_1_0 returns Operation
+	 *
+	 * Constraint:
+	 *     (left=expression_Operation_1_1_0 op=infixOperator right=value)
+	 */
+	protected void sequence_expression(ISerializationContext context, Operation semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TeSSLaPackage.Literals.OPERATION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TeSSLaPackage.Literals.OPERATION__LEFT));
+			if (transientValues.isValueTransient(semanticObject, TeSSLaPackage.Literals.OPERATION__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TeSSLaPackage.Literals.OPERATION__OP));
+			if (transientValues.isValueTransient(semanticObject, TeSSLaPackage.Literals.OPERATION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TeSSLaPackage.Literals.OPERATION__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExpressionAccess().getOperationLeftAction_1_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExpressionAccess().getOpInfixOperatorParserRuleCall_1_1_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getExpressionAccess().getRightValueParserRuleCall_1_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -195,6 +224,8 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     expression returns value
+	 *     expression.Operation_1_1_0 returns value
 	 *     value returns value
 	 *
 	 * Constraint:
@@ -203,9 +234,7 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         exp=typedExpression | 
 	 *         (statements+=statement* exp=typedExpression) | 
 	 *         (name=ID (args+=arg args+=arg*)?) | 
-	 *         name=ID | 
-	 *         name=STRING | 
-	 *         val=INT
+	 *         name=ID
 	 *     )?
 	 */
 	protected void sequence_value(ISerializationContext context, value semanticObject) {

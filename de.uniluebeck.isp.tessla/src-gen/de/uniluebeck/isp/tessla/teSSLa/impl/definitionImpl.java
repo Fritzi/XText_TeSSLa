@@ -7,6 +7,7 @@ import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
 import de.uniluebeck.isp.tessla.teSSLa.statement;
+import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
 
 import java.util.Collection;
 
@@ -16,7 +17,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getDef <em>Def</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getParamList <em>Param List</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getExpression <em>Expression</em>}</li>
@@ -45,24 +45,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class definitionImpl extends MinimalEObjectImpl.Container implements definition
 {
   /**
-   * The default value of the '{@link #getDef() <em>Def</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDef()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String DEF_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDef() <em>Def</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDef()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String def = DEF_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParamList() <em>Param List</em>}' containment reference.
@@ -102,7 +102,7 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * @generated
    * @ordered
    */
-  protected EObject expression;
+  protected typedExpression expression;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -140,9 +140,9 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDef()
+  public String getName()
   {
-    return def;
+    return name;
   }
 
   /**
@@ -150,12 +150,12 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDef(String newDef)
+  public void setName(String newName)
   {
-    String oldDef = def;
-    def = newDef;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.DEFINITION__DEF, oldDef, def));
+      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.DEFINITION__NAME, oldName, name));
   }
 
   /**
@@ -234,7 +234,7 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getExpression()
+  public typedExpression getExpression()
   {
     return expression;
   }
@@ -244,9 +244,9 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpression(EObject newExpression, NotificationChain msgs)
+  public NotificationChain basicSetExpression(typedExpression newExpression, NotificationChain msgs)
   {
-    EObject oldExpression = expression;
+    typedExpression oldExpression = expression;
     expression = newExpression;
     if (eNotificationRequired())
     {
@@ -261,7 +261,7 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpression(EObject newExpression)
+  public void setExpression(typedExpression newExpression)
   {
     if (newExpression != expression)
     {
@@ -321,8 +321,8 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
   {
     switch (featureID)
     {
-      case TeSSLaPackage.DEFINITION__DEF:
-        return getDef();
+      case TeSSLaPackage.DEFINITION__NAME:
+        return getName();
       case TeSSLaPackage.DEFINITION__PARAM_LIST:
         return getParamList();
       case TeSSLaPackage.DEFINITION__TYPE:
@@ -346,8 +346,8 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
   {
     switch (featureID)
     {
-      case TeSSLaPackage.DEFINITION__DEF:
-        setDef((String)newValue);
+      case TeSSLaPackage.DEFINITION__NAME:
+        setName((String)newValue);
         return;
       case TeSSLaPackage.DEFINITION__PARAM_LIST:
         setParamList((paramList)newValue);
@@ -356,7 +356,7 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
         setType((String)newValue);
         return;
       case TeSSLaPackage.DEFINITION__EXPRESSION:
-        setExpression((EObject)newValue);
+        setExpression((typedExpression)newValue);
         return;
       case TeSSLaPackage.DEFINITION__STATEMENTS:
         getStatements().clear();
@@ -376,8 +376,8 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
   {
     switch (featureID)
     {
-      case TeSSLaPackage.DEFINITION__DEF:
-        setDef(DEF_EDEFAULT);
+      case TeSSLaPackage.DEFINITION__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case TeSSLaPackage.DEFINITION__PARAM_LIST:
         setParamList((paramList)null);
@@ -386,7 +386,7 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
         setType(TYPE_EDEFAULT);
         return;
       case TeSSLaPackage.DEFINITION__EXPRESSION:
-        setExpression((EObject)null);
+        setExpression((typedExpression)null);
         return;
       case TeSSLaPackage.DEFINITION__STATEMENTS:
         getStatements().clear();
@@ -405,8 +405,8 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
   {
     switch (featureID)
     {
-      case TeSSLaPackage.DEFINITION__DEF:
-        return DEF_EDEFAULT == null ? def != null : !DEF_EDEFAULT.equals(def);
+      case TeSSLaPackage.DEFINITION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case TeSSLaPackage.DEFINITION__PARAM_LIST:
         return paramList != null;
       case TeSSLaPackage.DEFINITION__TYPE:
@@ -430,8 +430,8 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (def: ");
-    result.append(def);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", type: ");
     result.append(type);
     result.append(')');

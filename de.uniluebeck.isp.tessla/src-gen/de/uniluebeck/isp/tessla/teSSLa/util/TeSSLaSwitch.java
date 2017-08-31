@@ -133,6 +133,7 @@ public class TeSSLaSwitch<T> extends Switch<T>
       {
         value value = (value)theEObject;
         T result = casevalue(value);
+        if (result == null) result = caseexpression(value);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -140,6 +141,22 @@ public class TeSSLaSwitch<T> extends Switch<T>
       {
         arg arg = (arg)theEObject;
         T result = casearg(arg);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TeSSLaPackage.IF_STATEMENT:
+      {
+        IfStatement ifStatement = (IfStatement)theEObject;
+        T result = caseIfStatement(ifStatement);
+        if (result == null) result = caseexpression(ifStatement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TeSSLaPackage.OPERATION:
+      {
+        Operation operation = (Operation)theEObject;
+        T result = caseOperation(operation);
+        if (result == null) result = caseexpression(operation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -303,6 +320,38 @@ public class TeSSLaSwitch<T> extends Switch<T>
    * @generated
    */
   public T casearg(arg object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfStatement(IfStatement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperation(Operation object)
   {
     return null;
   }

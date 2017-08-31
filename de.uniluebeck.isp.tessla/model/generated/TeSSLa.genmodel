@@ -16,7 +16,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//statement/comment"/>
     </genClasses>
     <genClasses ecoreClass="TeSSLa.ecore#//definition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//definition/def"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//definition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//definition/paramList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//definition/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//definition/expression"/>
@@ -38,24 +38,27 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//typedExpression/exp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//typedExpression/type"/>
     </genClasses>
-    <genClasses ecoreClass="TeSSLa.ecore#//expression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//expression/if"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//expression/then"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//expression/else"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//expression/val"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//expression/infix"/>
-    </genClasses>
+    <genClasses ecoreClass="TeSSLa.ecore#//expression"/>
     <genClasses ecoreClass="TeSSLa.ecore#//value">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//value/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//value/exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//value/statements"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//value/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//value/args"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//value/val"/>
     </genClasses>
     <genClasses ecoreClass="TeSSLa.ecore#//arg">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//arg/arg"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//arg/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="TeSSLa.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//IfStatement/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//IfStatement/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//IfStatement/else"/>
+    </genClasses>
+    <genClasses ecoreClass="TeSSLa.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//Operation/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//Operation/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//Operation/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

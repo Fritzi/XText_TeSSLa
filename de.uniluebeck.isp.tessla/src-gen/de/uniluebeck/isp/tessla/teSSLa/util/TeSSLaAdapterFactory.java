@@ -126,6 +126,16 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
         return createargAdapter();
       }
       @Override
+      public Adapter caseIfStatement(IfStatement object)
+      {
+        return createIfStatementAdapter();
+      }
+      @Override
+      public Adapter caseOperation(Operation object)
+      {
+        return createOperationAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -293,6 +303,36 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createargAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.IfStatement <em>If Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uniluebeck.isp.tessla.teSSLa.IfStatement
+   * @generated
+   */
+  public Adapter createIfStatementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.Operation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.uniluebeck.isp.tessla.teSSLa.Operation
+   * @generated
+   */
+  public Adapter createOperationAdapter()
   {
     return null;
   }

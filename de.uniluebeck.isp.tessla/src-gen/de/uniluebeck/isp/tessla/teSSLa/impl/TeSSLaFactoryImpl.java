@@ -75,6 +75,8 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
       case TeSSLaPackage.EXPRESSION: return createexpression();
       case TeSSLaPackage.VALUE: return createvalue();
       case TeSSLaPackage.ARG: return createarg();
+      case TeSSLaPackage.IF_STATEMENT: return createIfStatement();
+      case TeSSLaPackage.OPERATION: return createOperation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -188,6 +190,28 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
   {
     argImpl arg = new argImpl();
     return arg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IfStatement createIfStatement()
+  {
+    IfStatementImpl ifStatement = new IfStatementImpl();
+    return ifStatement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operation createOperation()
+  {
+    OperationImpl operation = new OperationImpl();
+    return operation;
   }
 
   /**

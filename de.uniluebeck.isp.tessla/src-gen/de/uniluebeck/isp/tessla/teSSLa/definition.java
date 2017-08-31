@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getDef <em>Def</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getName <em>Name</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getParamList <em>Param List</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getType <em>Type</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getExpression <em>Expression</em>}</li>
@@ -30,30 +30,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface definition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Def</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Def</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Def</em>' attribute.
-   * @see #setDef(String)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getdefinition_Def()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getdefinition_Name()
    * @model
    * @generated
    */
-  String getDef();
+  String getName();
 
   /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.definition#getDef <em>Def</em>}' attribute.
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.definition#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Def</em>' attribute.
-   * @see #getDef()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setDef(String value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Param List</b></em>' containment reference.
@@ -116,12 +116,12 @@ public interface definition extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expression</em>' containment reference.
-   * @see #setExpression(EObject)
+   * @see #setExpression(typedExpression)
    * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getdefinition_Expression()
    * @model containment="true"
    * @generated
    */
-  EObject getExpression();
+  typedExpression getExpression();
 
   /**
    * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.definition#getExpression <em>Expression</em>}' containment reference.
@@ -131,7 +131,7 @@ public interface definition extends EObject
    * @see #getExpression()
    * @generated
    */
-  void setExpression(EObject value);
+  void setExpression(typedExpression value);
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.

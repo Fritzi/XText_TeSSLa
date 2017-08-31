@@ -95,8 +95,8 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final Keyword cDefKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
 		private final Keyword cDefineKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Assignment cDefAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cDefIDTerminalRuleCall_1_0 = (RuleCall)cDefAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cParamListAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cParamListParamListParserRuleCall_2_0 = (RuleCall)cParamListAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -112,16 +112,16 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStatementsAssignment_5_1_1 = (Assignment)cGroup_5_1.eContents().get(1);
 		private final RuleCall cStatementsStatementParserRuleCall_5_1_1_0 = (RuleCall)cStatementsAssignment_5_1_1.eContents().get(0);
 		private final Assignment cExpressionAssignment_5_1_2 = (Assignment)cGroup_5_1.eContents().get(2);
-		private final RuleCall cExpressionExpressionParserRuleCall_5_1_2_0 = (RuleCall)cExpressionAssignment_5_1_2.eContents().get(0);
+		private final RuleCall cExpressionTypedExpressionParserRuleCall_5_1_2_0 = (RuleCall)cExpressionAssignment_5_1_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5_1_3 = (Keyword)cGroup_5_1.eContents().get(3);
 		
 		//definition:
-		//	('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{'
-		//	statements+=statement* expression=expression '}');
+		//	('def' | 'define') name=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{'
+		//	statements+=statement* expression=typedExpression '}');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{'
-		//statements+=statement* expression=expression '}')
+		//('def' | 'define') name=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{'
+		//statements+=statement* expression=typedExpression '}')
 		public Group getGroup() { return cGroup; }
 		
 		//'def' | 'define'
@@ -133,11 +133,11 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		//'define'
 		public Keyword getDefineKeyword_0_1() { return cDefineKeyword_0_1; }
 		
-		//def=ID
-		public Assignment getDefAssignment_1() { return cDefAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getDefIDTerminalRuleCall_1_0() { return cDefIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//paramList=paramList?
 		public Assignment getParamListAssignment_2() { return cParamListAssignment_2; }
@@ -160,7 +160,7 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		//':='
 		public Keyword getColonEqualsSignKeyword_4() { return cColonEqualsSignKeyword_4; }
 		
-		//expression=typedExpression | '{' statements+=statement* expression=expression '}'
+		//expression=typedExpression | '{' statements+=statement* expression=typedExpression '}'
 		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 		
 		//expression=typedExpression
@@ -169,7 +169,7 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		//typedExpression
 		public RuleCall getExpressionTypedExpressionParserRuleCall_5_0_0() { return cExpressionTypedExpressionParserRuleCall_5_0_0; }
 		
-		//'{' statements+=statement* expression=expression '}'
+		//'{' statements+=statement* expression=typedExpression '}'
 		public Group getGroup_5_1() { return cGroup_5_1; }
 		
 		//'{'
@@ -181,11 +181,11 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		//statement
 		public RuleCall getStatementsStatementParserRuleCall_5_1_1_0() { return cStatementsStatementParserRuleCall_5_1_1_0; }
 		
-		//expression=expression
+		//expression=typedExpression
 		public Assignment getExpressionAssignment_5_1_2() { return cExpressionAssignment_5_1_2; }
 		
-		//expression
-		public RuleCall getExpressionExpressionParserRuleCall_5_1_2_0() { return cExpressionExpressionParserRuleCall_5_1_2_0; }
+		//typedExpression
+		public RuleCall getExpressionTypedExpressionParserRuleCall_5_1_2_0() { return cExpressionTypedExpressionParserRuleCall_5_1_2_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5_1_3() { return cRightCurlyBracketKeyword_5_1_3; }
@@ -302,7 +302,9 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
 		
 		//out:
-		//	'out' exp=typedExpression ('as' name=ID)?;
+		//	'out' exp=typedExpression ('as' name=ID)?
+		//	//	'out' def=[definition]
+		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'out' exp=typedExpression ('as' name=ID)?
@@ -403,90 +405,94 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.uniluebeck.isp.tessla.TeSSLa.expression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cIfKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cIfAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cIfTypedExpressionParserRuleCall_0_1_0 = (RuleCall)cIfAssignment_0_1.eContents().get(0);
-		private final Keyword cThenKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cThenAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final RuleCall cThenTypedExpressionParserRuleCall_0_3_0 = (RuleCall)cThenAssignment_0_3.eContents().get(0);
-		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
-		private final Keyword cElseKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
-		private final Assignment cElseAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
-		private final RuleCall cElseTypedExpressionParserRuleCall_0_4_1_0 = (RuleCall)cElseAssignment_0_4_1.eContents().get(0);
+		private final Action cIfStatementAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cIfKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cIfAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cIfTypedExpressionParserRuleCall_0_2_0 = (RuleCall)cIfAssignment_0_2.eContents().get(0);
+		private final Keyword cThenKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Assignment cThenAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
+		private final RuleCall cThenTypedExpressionParserRuleCall_0_4_0 = (RuleCall)cThenAssignment_0_4.eContents().get(0);
+		private final Group cGroup_0_5 = (Group)cGroup_0.eContents().get(5);
+		private final Keyword cElseKeyword_0_5_0 = (Keyword)cGroup_0_5.eContents().get(0);
+		private final Assignment cElseAssignment_0_5_1 = (Assignment)cGroup_0_5.eContents().get(1);
+		private final RuleCall cElseTypedExpressionParserRuleCall_0_5_1_0 = (RuleCall)cElseAssignment_0_5_1.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Assignment cValAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cValValueParserRuleCall_1_0_0 = (RuleCall)cValAssignment_1_0.eContents().get(0);
+		private final RuleCall cValueParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Assignment cInfixAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cInfixInfixOperatorParserRuleCall_1_1_0_0 = (RuleCall)cInfixAssignment_1_1_0.eContents().get(0);
-		private final Assignment cValAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
-		private final RuleCall cValValueParserRuleCall_1_1_1_0 = (RuleCall)cValAssignment_1_1_1.eContents().get(0);
+		private final Action cOperationLeftAction_1_1_0 = (Action)cGroup_1_1.eContents().get(0);
+		private final Assignment cOpAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cOpInfixOperatorParserRuleCall_1_1_1_0 = (RuleCall)cOpAssignment_1_1_1.eContents().get(0);
+		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cRightValueParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
 		
 		//expression:
-		//	'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)?
-		//	| val+=value (infix+=infixOperator val+=value)*;
+		//	{IfStatement} 'if' if=typedExpression 'then' then=typedExpression (=> 'else' else=typedExpression)?
+		//	| value ({Operation.left=current} op=infixOperator right=value)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)? | val+=value (infix+=infixOperator
-		//val+=value)*
+		//{IfStatement} 'if' if=typedExpression 'then' then=typedExpression (=> 'else' else=typedExpression)? | value
+		//({Operation.left=current} op=infixOperator right=value)*
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)?
+		//{IfStatement} 'if' if=typedExpression 'then' then=typedExpression (=> 'else' else=typedExpression)?
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//{IfStatement}
+		public Action getIfStatementAction_0_0() { return cIfStatementAction_0_0; }
+		
 		//'if'
-		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+		public Keyword getIfKeyword_0_1() { return cIfKeyword_0_1; }
 		
 		//if=typedExpression
-		public Assignment getIfAssignment_0_1() { return cIfAssignment_0_1; }
+		public Assignment getIfAssignment_0_2() { return cIfAssignment_0_2; }
 		
 		//typedExpression
-		public RuleCall getIfTypedExpressionParserRuleCall_0_1_0() { return cIfTypedExpressionParserRuleCall_0_1_0; }
+		public RuleCall getIfTypedExpressionParserRuleCall_0_2_0() { return cIfTypedExpressionParserRuleCall_0_2_0; }
 		
 		//'then'
-		public Keyword getThenKeyword_0_2() { return cThenKeyword_0_2; }
+		public Keyword getThenKeyword_0_3() { return cThenKeyword_0_3; }
 		
 		//then=typedExpression
-		public Assignment getThenAssignment_0_3() { return cThenAssignment_0_3; }
+		public Assignment getThenAssignment_0_4() { return cThenAssignment_0_4; }
 		
 		//typedExpression
-		public RuleCall getThenTypedExpressionParserRuleCall_0_3_0() { return cThenTypedExpressionParserRuleCall_0_3_0; }
+		public RuleCall getThenTypedExpressionParserRuleCall_0_4_0() { return cThenTypedExpressionParserRuleCall_0_4_0; }
 		
-		//('else' else=typedExpression)?
-		public Group getGroup_0_4() { return cGroup_0_4; }
+		//(=> 'else' else=typedExpression)?
+		public Group getGroup_0_5() { return cGroup_0_5; }
 		
-		//'else'
-		public Keyword getElseKeyword_0_4_0() { return cElseKeyword_0_4_0; }
+		//=> 'else'
+		public Keyword getElseKeyword_0_5_0() { return cElseKeyword_0_5_0; }
 		
 		//else=typedExpression
-		public Assignment getElseAssignment_0_4_1() { return cElseAssignment_0_4_1; }
+		public Assignment getElseAssignment_0_5_1() { return cElseAssignment_0_5_1; }
 		
 		//typedExpression
-		public RuleCall getElseTypedExpressionParserRuleCall_0_4_1_0() { return cElseTypedExpressionParserRuleCall_0_4_1_0; }
+		public RuleCall getElseTypedExpressionParserRuleCall_0_5_1_0() { return cElseTypedExpressionParserRuleCall_0_5_1_0; }
 		
-		//val+=value (infix+=infixOperator val+=value)*
+		//value ({Operation.left=current} op=infixOperator right=value)*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//val+=value
-		public Assignment getValAssignment_1_0() { return cValAssignment_1_0; }
-		
 		//value
-		public RuleCall getValValueParserRuleCall_1_0_0() { return cValValueParserRuleCall_1_0_0; }
+		public RuleCall getValueParserRuleCall_1_0() { return cValueParserRuleCall_1_0; }
 		
-		//(infix+=infixOperator val+=value)*
+		//({Operation.left=current} op=infixOperator right=value)*
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//infix+=infixOperator
-		public Assignment getInfixAssignment_1_1_0() { return cInfixAssignment_1_1_0; }
+		//{Operation.left=current}
+		public Action getOperationLeftAction_1_1_0() { return cOperationLeftAction_1_1_0; }
+		
+		//op=infixOperator
+		public Assignment getOpAssignment_1_1_1() { return cOpAssignment_1_1_1; }
 		
 		//infixOperator
-		public RuleCall getInfixInfixOperatorParserRuleCall_1_1_0_0() { return cInfixInfixOperatorParserRuleCall_1_1_0_0; }
+		public RuleCall getOpInfixOperatorParserRuleCall_1_1_1_0() { return cOpInfixOperatorParserRuleCall_1_1_1_0; }
 		
-		//val+=value
-		public Assignment getValAssignment_1_1_1() { return cValAssignment_1_1_1; }
+		//right=value
+		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
 		
 		//value
-		public RuleCall getValValueParserRuleCall_1_1_1_0() { return cValValueParserRuleCall_1_1_1_0; }
+		public RuleCall getRightValueParserRuleCall_1_1_2_0() { return cRightValueParserRuleCall_1_1_2_0; }
 	}
 	public class ValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.uniluebeck.isp.tessla.TeSSLa.value");
@@ -524,10 +530,8 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_3_3 = (Keyword)cGroup_1_3.eContents().get(3);
 		private final Assignment cNameAssignment_1_4 = (Assignment)cAlternatives_1.eContents().get(4);
 		private final RuleCall cNameIDTerminalRuleCall_1_4_0 = (RuleCall)cNameAssignment_1_4.eContents().get(0);
-		private final Assignment cNameAssignment_1_5 = (Assignment)cAlternatives_1.eContents().get(5);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_5_0 = (RuleCall)cNameAssignment_1_5.eContents().get(0);
-		private final Assignment cValAssignment_1_6 = (Assignment)cAlternatives_1.eContents().get(6);
-		private final RuleCall cValINTTerminalRuleCall_1_6_0 = (RuleCall)cValAssignment_1_6.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_1_5 = (RuleCall)cAlternatives_1.eContents().get(5);
+		private final RuleCall cINTTerminalRuleCall_1_6 = (RuleCall)cAlternatives_1.eContents().get(6);
 		private final Keyword cLeftParenthesisRightParenthesisKeyword_1_7 = (Keyword)cAlternatives_1.eContents().get(7);
 		private final Keyword cTrueKeyword_1_8 = (Keyword)cAlternatives_1.eContents().get(8);
 		private final Keyword cFalseKeyword_1_9 = (Keyword)cAlternatives_1.eContents().get(9);
@@ -538,23 +542,23 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		//	| '{' statements+=statement* exp=typedExpression '}'
 		//	| name=ID '(' (args+=arg (',' args+=arg)*)? ')'
 		//	| name=ID
-		//	| name=STRING
-		//	| val=INT
+		//	| STRING
+		//	| INT
 		//	| '()'
 		//	| 'true'
 		//	| 'false');
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{value} (op=unaryOperator exp=typedExpression | '(' exp=typedExpression ')' | '{' statements+=statement*
-		//exp=typedExpression '}' | name=ID '(' (args+=arg (',' args+=arg)*)? ')' | name=ID | name=STRING | val=INT | '()' |
-		//'true' | 'false')
+		//exp=typedExpression '}' | name=ID '(' (args+=arg (',' args+=arg)*)? ')' | name=ID | STRING | INT | '()' | 'true' |
+		//'false')
 		public Group getGroup() { return cGroup; }
 		
 		//{value}
 		public Action getValueAction_0() { return cValueAction_0; }
 		
 		//op=unaryOperator exp=typedExpression | '(' exp=typedExpression ')' | '{' statements+=statement* exp=typedExpression '}'
-		//| name=ID '(' (args+=arg (',' args+=arg)*)? ')' | name=ID | name=STRING | val=INT | '()' | 'true' | 'false'
+		//| name=ID '(' (args+=arg (',' args+=arg)*)? ')' | name=ID | STRING | INT | '()' | 'true' | 'false'
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//op=unaryOperator exp=typedExpression
@@ -650,17 +654,11 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_4_0() { return cNameIDTerminalRuleCall_1_4_0; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_1_5() { return cNameAssignment_1_5; }
-		
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_5_0() { return cNameSTRINGTerminalRuleCall_1_5_0; }
-		
-		//val=INT
-		public Assignment getValAssignment_1_6() { return cValAssignment_1_6; }
+		public RuleCall getSTRINGTerminalRuleCall_1_5() { return cSTRINGTerminalRuleCall_1_5; }
 		
 		//INT
-		public RuleCall getValINTTerminalRuleCall_1_6_0() { return cValINTTerminalRuleCall_1_6_0; }
+		public RuleCall getINTTerminalRuleCall_1_6() { return cINTTerminalRuleCall_1_6; }
 		
 		//'()'
 		public Keyword getLeftParenthesisRightParenthesisKeyword_1_7() { return cLeftParenthesisRightParenthesisKeyword_1_7; }
@@ -983,8 +981,8 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//definition:
-	//	('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{'
-	//	statements+=statement* expression=expression '}');
+	//	('def' | 'define') name=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{'
+	//	statements+=statement* expression=typedExpression '}');
 	public DefinitionElements getDefinitionAccess() {
 		return pDefinition;
 	}
@@ -1005,7 +1003,9 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//out:
-	//	'out' exp=typedExpression ('as' name=ID)?;
+	//	'out' exp=typedExpression ('as' name=ID)?
+	//	//	'out' def=[definition]
+	//;
 	public OutElements getOutAccess() {
 		return pOut;
 	}
@@ -1035,8 +1035,8 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//expression:
-	//	'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)?
-	//	| val+=value (infix+=infixOperator val+=value)*;
+	//	{IfStatement} 'if' if=typedExpression 'then' then=typedExpression (=> 'else' else=typedExpression)?
+	//	| value ({Operation.left=current} op=infixOperator right=value)*;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1051,8 +1051,8 @@ public class TeSSLaGrammarAccess extends AbstractGrammarElementFinder {
 	//	| '{' statements+=statement* exp=typedExpression '}'
 	//	| name=ID '(' (args+=arg (',' args+=arg)*)? ')'
 	//	| name=ID
-	//	| name=STRING
-	//	| val=INT
+	//	| STRING
+	//	| INT
 	//	| '()'
 	//	| 'true'
 	//	| 'false');

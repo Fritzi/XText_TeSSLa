@@ -3,7 +3,16 @@
  */
 package de.uniluebeck.isp.tessla.ui.contentassist;
 
+import de.uniluebeck.isp.tessla.teSSLa.Model;
+import de.uniluebeck.isp.tessla.teSSLa.definition;
+import de.uniluebeck.isp.tessla.teSSLa.in;
+import de.uniluebeck.isp.tessla.teSSLa.statement;
 import de.uniluebeck.isp.tessla.ui.contentassist.AbstractTeSSLaProposalProvider;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -11,7 +20,49 @@ import de.uniluebeck.isp.tessla.ui.contentassist.AbstractTeSSLaProposalProvider;
  */
 @SuppressWarnings("all")
 public class TeSSLaProposalProvider extends AbstractTeSSLaProposalProvider {
-	
-	
-	
+  @Override
+  public void complete_typedExpression(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.complete_out(model, ruleCall, context, acceptor);
+    EObject _rootModel = context.getRootModel();
+    final Model rootModel = ((Model) _rootModel);
+    EList<statement> _spec = rootModel.getSpec();
+    for (final statement statement : _spec) {
+      definition _def = statement.getDef();
+      boolean _tripleNotEquals = (_def != null);
+      if (_tripleNotEquals) {
+        final String proposal = statement.getDef().getName();
+        acceptor.accept(this.createCompletionProposal(proposal, context));
+      } else {
+        in _in = statement.getIn();
+        boolean _tripleNotEquals_1 = (_in != null);
+        if (_tripleNotEquals_1) {
+          final String proposal_1 = statement.getIn().getName();
+          acceptor.accept(this.createCompletionProposal(proposal_1, context));
+        }
+      }
+    }
+  }
+  
+  @Override
+  public void complete_value(final EObject model, final RuleCall ruleCall, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    super.complete_out(model, ruleCall, context, acceptor);
+    EObject _rootModel = context.getRootModel();
+    final Model rootModel = ((Model) _rootModel);
+    EList<statement> _spec = rootModel.getSpec();
+    for (final statement statement : _spec) {
+      definition _def = statement.getDef();
+      boolean _tripleNotEquals = (_def != null);
+      if (_tripleNotEquals) {
+        final String proposal = statement.getDef().getName();
+        acceptor.accept(this.createCompletionProposal(proposal, context));
+      } else {
+        in _in = statement.getIn();
+        boolean _tripleNotEquals_1 = (_in != null);
+        if (_tripleNotEquals_1) {
+          final String proposal_1 = statement.getIn().getName();
+          acceptor.accept(this.createCompletionProposal(proposal_1, context));
+        }
+      }
+    }
+  }
 }

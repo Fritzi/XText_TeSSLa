@@ -3,8 +3,6 @@
  */
 package de.uniluebeck.isp.tessla.teSSLa;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,16 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>expression</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.expression#getIf <em>If</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.expression#getThen <em>Then</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.expression#getElse <em>Else</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.expression#getVal <em>Val</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.expression#getInfix <em>Infix</em>}</li>
- * </ul>
  *
  * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getexpression()
  * @model
@@ -29,114 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface expression extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>If</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>If</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>If</em>' containment reference.
-   * @see #setIf(typedExpression)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getexpression_If()
-   * @model containment="true"
-   * @generated
-   */
-  typedExpression getIf();
-
-  /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getIf <em>If</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>If</em>' containment reference.
-   * @see #getIf()
-   * @generated
-   */
-  void setIf(typedExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Then</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Then</em>' containment reference.
-   * @see #setThen(typedExpression)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getexpression_Then()
-   * @model containment="true"
-   * @generated
-   */
-  typedExpression getThen();
-
-  /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getThen <em>Then</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Then</em>' containment reference.
-   * @see #getThen()
-   * @generated
-   */
-  void setThen(typedExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Else</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Else</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Else</em>' containment reference.
-   * @see #setElse(typedExpression)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getexpression_Else()
-   * @model containment="true"
-   * @generated
-   */
-  typedExpression getElse();
-
-  /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.expression#getElse <em>Else</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Else</em>' containment reference.
-   * @see #getElse()
-   * @generated
-   */
-  void setElse(typedExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Val</b></em>' containment reference list.
-   * The list contents are of type {@link de.uniluebeck.isp.tessla.teSSLa.value}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Val</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Val</em>' containment reference list.
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getexpression_Val()
-   * @model containment="true"
-   * @generated
-   */
-  EList<value> getVal();
-
-  /**
-   * Returns the value of the '<em><b>Infix</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Infix</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Infix</em>' attribute list.
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getexpression_Infix()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getInfix();
-
 } // expression

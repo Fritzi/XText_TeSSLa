@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -38,12 +37,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl#getStatements <em>Statements</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl#getArgs <em>Args</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.valueImpl#getVal <em>Val</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class valueImpl extends MinimalEObjectImpl.Container implements value
+public class valueImpl extends expressionImpl implements value
 {
   /**
    * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
@@ -114,26 +112,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
    * @ordered
    */
   protected EList<arg> args;
-
-  /**
-   * The default value of the '{@link #getVal() <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVal()
-   * @generated
-   * @ordered
-   */
-  protected static final int VAL_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getVal() <em>Val</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVal()
-   * @generated
-   * @ordered
-   */
-  protected int val = VAL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -283,29 +261,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getVal()
-  {
-    return val;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVal(int newVal)
-  {
-    int oldVal = val;
-    val = newVal;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TeSSLaPackage.VALUE__VAL, oldVal, val));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -341,8 +296,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
         return getName();
       case TeSSLaPackage.VALUE__ARGS:
         return getArgs();
-      case TeSSLaPackage.VALUE__VAL:
-        return getVal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -375,9 +328,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
         getArgs().clear();
         getArgs().addAll((Collection<? extends arg>)newValue);
         return;
-      case TeSSLaPackage.VALUE__VAL:
-        setVal((Integer)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -407,9 +357,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
       case TeSSLaPackage.VALUE__ARGS:
         getArgs().clear();
         return;
-      case TeSSLaPackage.VALUE__VAL:
-        setVal(VAL_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -434,8 +381,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case TeSSLaPackage.VALUE__ARGS:
         return args != null && !args.isEmpty();
-      case TeSSLaPackage.VALUE__VAL:
-        return val != VAL_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -455,8 +400,6 @@ public class valueImpl extends MinimalEObjectImpl.Container implements value
     result.append(op);
     result.append(", name: ");
     result.append(name);
-    result.append(", val: ");
-    result.append(val);
     result.append(')');
     return result.toString();
   }

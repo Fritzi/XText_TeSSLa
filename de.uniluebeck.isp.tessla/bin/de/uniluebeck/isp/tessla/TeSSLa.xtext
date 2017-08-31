@@ -15,7 +15,7 @@ terminal SL_COMMENT:
 ;  
   
 definition:
-	('def' | 'define') def=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{' statements+=statement* expression=expression'}')
+	('def' | 'define') name=ID paramList=paramList? (':' type=type)? ':=' (expression=typedExpression | '{' statements+=statement* expression=typedExpression '}')
 ;
 
 paramList:
@@ -26,6 +26,7 @@ paramList:
 
 out:
 	'out' exp=typedExpression ('as' name=ID)?
+//	'out' def=[definition]
 ;
 	
 in:
@@ -37,8 +38,8 @@ typedExpression:
 ;
 
 expression:
-	'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)?
-	| val+=value (infix+=infixOperator val+=value)*
+	{IfStatement} 'if' if=typedExpression 'then' then=typedExpression ('else' else=typedExpression)?
+	| value ({Operation.left=current} op=infixOperator right=value)*
 ;
 
 value:
@@ -48,8 +49,8 @@ value:
 	| '{' statements+=statement* exp=typedExpression '}'
 	| name=ID '(' (args+=arg (',' args+=arg)*)? ')'
 	| name=ID
-	| name=STRING
-	| val=INT
+	| STRING
+	| INT
 	| '()' 
 	| 'true' 
 	| 'false')
