@@ -4,9 +4,9 @@
 package de.uniluebeck.isp.tessla.ui.contentassist;
 
 import de.uniluebeck.isp.tessla.teSSLa.Model;
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
 import de.uniluebeck.isp.tessla.teSSLa.in;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 import de.uniluebeck.isp.tessla.ui.contentassist.AbstractTeSSLaProposalProvider;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -25,8 +25,8 @@ public class TeSSLaProposalProvider extends AbstractTeSSLaProposalProvider {
     super.complete_out(model, ruleCall, context, acceptor);
     EObject _rootModel = context.getRootModel();
     final Model rootModel = ((Model) _rootModel);
-    EList<statement> _spec = rootModel.getSpec();
-    for (final statement statement : _spec) {
+    EList<Statement> _spec = rootModel.getSpec();
+    for (final Statement statement : _spec) {
       definition _def = statement.getDef();
       boolean _tripleNotEquals = (_def != null);
       if (_tripleNotEquals) {
@@ -48,8 +48,8 @@ public class TeSSLaProposalProvider extends AbstractTeSSLaProposalProvider {
     super.complete_out(model, ruleCall, context, acceptor);
     EObject _rootModel = context.getRootModel();
     final Model rootModel = ((Model) _rootModel);
-    EList<statement> _spec = rootModel.getSpec();
-    for (final statement statement : _spec) {
+    EList<Statement> _spec = rootModel.getSpec();
+    for (final Statement statement : _spec) {
       definition _def = statement.getDef();
       boolean _tripleNotEquals = (_def != null);
       if (_tripleNotEquals) {

@@ -6,6 +6,7 @@ package de.uniluebeck.isp.tessla.teSSLa.impl;
 import de.uniluebeck.isp.tessla.teSSLa.IfStatement;
 import de.uniluebeck.isp.tessla.teSSLa.Model;
 import de.uniluebeck.isp.tessla.teSSLa.Operation;
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaFactory;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.arg;
@@ -14,7 +15,6 @@ import de.uniluebeck.isp.tessla.teSSLa.expression;
 import de.uniluebeck.isp.tessla.teSSLa.in;
 import de.uniluebeck.isp.tessla.teSSLa.out;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
 import de.uniluebeck.isp.tessla.teSSLa.value;
 
@@ -205,7 +205,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getstatement()
+  public EClass getStatement()
   {
     return statementEClass;
   }
@@ -215,7 +215,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getstatement_Def()
+  public EReference getStatement_Def()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(0);
   }
@@ -225,7 +225,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getstatement_Out()
+  public EReference getStatement_Out()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(1);
   }
@@ -235,7 +235,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getstatement_In()
+  public EReference getStatement_In()
   {
     return (EReference)statementEClass.getEStructuralFeatures().get(2);
   }
@@ -245,7 +245,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getstatement_Comment()
+  public EAttribute getStatement_Comment()
   {
     return (EAttribute)statementEClass.getEStructuralFeatures().get(3);
   }
@@ -298,16 +298,6 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
   public EReference getdefinition_Expression()
   {
     return (EReference)definitionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getdefinition_Statements()
-  {
-    return (EReference)definitionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -654,7 +644,6 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
     createEReference(definitionEClass, DEFINITION__PARAM_LIST);
     createEAttribute(definitionEClass, DEFINITION__TYPE);
     createEReference(definitionEClass, DEFINITION__EXPRESSION);
-    createEReference(definitionEClass, DEFINITION__STATEMENTS);
 
     paramListEClass = createEClass(PARAM_LIST);
     createEAttribute(paramListEClass, PARAM_LIST__PARAMS);
@@ -731,20 +720,19 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Spec(), this.getstatement(), null, "spec", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Spec(), this.getStatement(), null, "spec", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(statementEClass, statement.class, "statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getstatement_Def(), this.getdefinition(), null, "def", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getstatement_Out(), this.getout(), null, "out", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getstatement_In(), this.getin(), null, "in", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getstatement_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStatement_Def(), this.getdefinition(), null, "def", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_Out(), this.getout(), null, "out", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStatement_In(), this.getin(), null, "in", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStatement_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionEClass, definition.class, "definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getdefinition_Name(), ecorePackage.getEString(), "name", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getdefinition_ParamList(), this.getparamList(), null, "paramList", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getdefinition_Type(), ecorePackage.getEString(), "type", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getdefinition_Expression(), this.gettypedExpression(), null, "expression", null, 0, 1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getdefinition_Statements(), this.getstatement(), null, "statements", null, 0, -1, definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paramListEClass, paramList.class, "paramList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getparamList_Params(), ecorePackage.getEString(), "params", null, 0, -1, paramList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -767,7 +755,7 @@ public class TeSSLaPackageImpl extends EPackageImpl implements TeSSLaPackage
     initEClass(valueEClass, value.class, "value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getvalue_Op(), ecorePackage.getEString(), "op", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getvalue_Exp(), this.gettypedExpression(), null, "exp", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getvalue_Statements(), this.getstatement(), null, "statements", null, 0, -1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getvalue_Statements(), this.getStatement(), null, "statements", null, 0, -1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getvalue_Name(), ecorePackage.getEString(), "name", null, 0, 1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getvalue_Args(), this.getarg(), null, "args", null, 0, -1, value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

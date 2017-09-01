@@ -33,13 +33,13 @@ public interface TeSSLaFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>statement</em>'.
+   * Returns a new object of class '<em>Statement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>statement</em>'.
+   * @return a new object of class '<em>Statement</em>'.
    * @generated
    */
-  statement createstatement();
+  Statement createStatement();
 
   /**
    * Returns a new object of class '<em>definition</em>'.

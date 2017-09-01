@@ -81,9 +81,9 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter casestatement(statement object)
+      public Adapter caseStatement(Statement object)
       {
-        return createstatementAdapter();
+        return createStatementAdapter();
       }
       @Override
       public Adapter casedefinition(definition object)
@@ -173,16 +173,16 @@ public class TeSSLaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.statement <em>statement</em>}'.
+   * Creates a new adapter for an object of class '{@link de.uniluebeck.isp.tessla.teSSLa.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see de.uniluebeck.isp.tessla.teSSLa.statement
+   * @see de.uniluebeck.isp.tessla.teSSLa.Statement
    * @generated
    */
-  public Adapter createstatementAdapter()
+  public Adapter createStatementAdapter()
   {
     return null;
   }

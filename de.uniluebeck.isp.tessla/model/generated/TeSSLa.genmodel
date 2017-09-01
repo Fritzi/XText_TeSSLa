@@ -9,18 +9,17 @@
     <genClasses ecoreClass="TeSSLa.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//Model/spec"/>
     </genClasses>
-    <genClasses ecoreClass="TeSSLa.ecore#//statement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//statement/def"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//statement/out"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//statement/in"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//statement/comment"/>
+    <genClasses ecoreClass="TeSSLa.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//Statement/def"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//Statement/out"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//Statement/in"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//Statement/comment"/>
     </genClasses>
     <genClasses ecoreClass="TeSSLa.ecore#//definition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//definition/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//definition/paramList"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//definition/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//definition/expression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TeSSLa.ecore#//definition/statements"/>
     </genClasses>
     <genClasses ecoreClass="TeSSLa.ecore#//paramList">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TeSSLa.ecore#//paramList/params"/>

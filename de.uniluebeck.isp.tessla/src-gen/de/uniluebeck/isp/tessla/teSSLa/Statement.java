@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>statement</b></em>'.
+ * A representation of the model object '<em><b>Statement</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getDef <em>Def</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getOut <em>Out</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getIn <em>In</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.statement#getComment <em>Comment</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getDef <em>Def</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getOut <em>Out</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getIn <em>In</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getComment <em>Comment</em>}</li>
  * </ul>
  *
- * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement()
+ * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getStatement()
  * @model
  * @generated
  */
-public interface statement extends EObject
+public interface Statement extends EObject
 {
   /**
    * Returns the value of the '<em><b>Def</b></em>' containment reference.
@@ -36,14 +36,14 @@ public interface statement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Def</em>' containment reference.
    * @see #setDef(definition)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_Def()
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getStatement_Def()
    * @model containment="true"
    * @generated
    */
   definition getDef();
 
   /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getDef <em>Def</em>}' containment reference.
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getDef <em>Def</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Def</em>' containment reference.
@@ -62,14 +62,14 @@ public interface statement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Out</em>' containment reference.
    * @see #setOut(out)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_Out()
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getStatement_Out()
    * @model containment="true"
    * @generated
    */
   out getOut();
 
   /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getOut <em>Out</em>}' containment reference.
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getOut <em>Out</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Out</em>' containment reference.
@@ -88,14 +88,14 @@ public interface statement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>In</em>' containment reference.
    * @see #setIn(in)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_In()
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getStatement_In()
    * @model containment="true"
    * @generated
    */
   in getIn();
 
   /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getIn <em>In</em>}' containment reference.
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getIn <em>In</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>In</em>' containment reference.
@@ -114,14 +114,14 @@ public interface statement extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Comment</em>' attribute.
    * @see #setComment(String)
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getstatement_Comment()
+   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getStatement_Comment()
    * @model
    * @generated
    */
   String getComment();
 
   /**
-   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getComment <em>Comment</em>}' attribute.
+   * Sets the value of the '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getComment <em>Comment</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Comment</em>' attribute.
@@ -130,4 +130,4 @@ public interface statement extends EObject
    */
   void setComment(String value);
 
-} // statement
+} // Statement

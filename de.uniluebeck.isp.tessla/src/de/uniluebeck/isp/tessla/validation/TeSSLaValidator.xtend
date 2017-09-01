@@ -3,6 +3,14 @@
  */
 package de.uniluebeck.isp.tessla.validation
 
+import org.eclipse.xtext.validation.Check
+import de.uniluebeck.isp.tessla.teSSLa.Model
+import de.uniluebeck.isp.tessla.teSSLa.value
+import org.eclipse.emf.ecore.EObject
+import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage
+import de.uniluebeck.isp.tessla.teSSLa.definition
+import de.uniluebeck.isp.tessla.teSSLa.paramList
+import de.uniluebeck.isp.tessla.teSSLa.in
 
 /**
  * This class contains custom validation rules. 
@@ -10,6 +18,8 @@ package de.uniluebeck.isp.tessla.validation
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 class TeSSLaValidator extends AbstractTeSSLaValidator {
+	
+	public static val NOT_DEFINED = 'notDefined'
 	
 //	public static val INVALID_NAME = 'invalidName'
 //
@@ -21,5 +31,139 @@ class TeSSLaValidator extends AbstractTeSSLaValidator {
 //					INVALID_NAME)
 //		}
 //	}
+
+//	@Check 
+//	def checkDefinitions(definition definition){
+//		
+////		println(definition.name + ':')
+//		
+//		// get paramList if there is one
+//		var paramList paramL = null
+//		var boolean hasParamList = false
+//		if(definition.eIsSet(TeSSLaPackage.Literals.DEFINITION__PARAM_LIST)){
+//			hasParamList = true
+//			paramL = definition.paramList
+//		}
+//			
+//		// check for all values that occur in the definition if they are defined
+//		for(value value : definition.eAllContents.toIterable.filter(value)){
+//			// search for named values that are not pre-defined
+//			if(value.eIsSet(TeSSLaPackage.Literals.VALUE__NAME)
+//					&& !value.name.equals("default") 
+//					&& !value.name.equals("last") 
+//					&& !value.name.equals("function_call") 
+//					&& !value.name.equals("time") 
+//					&& !value.name.equals("defaultFrom")){	
+//				
+////				println(value.name)
+//				
+//				var boolean isParam = false
+//				
+//				// check if value = parameter of definition
+//				if(hasParamList){
+//					for(param : paramL.params){
+//						if(param.equals(value.name)) isParam = true
+//					}
+//					
+////					if(!isParam) println(value.name + ' is not a parameter')	
+//				}
+//				
+//				// check if value is defined
+//				var EObject parent = definition.eContainer
+//				var Model model = null
+//				var definition outerDef = null
+//				var in in = null
+//				
+//				do{
+//					try{
+//						model = parent as Model
+//					} catch(ClassCastException e){
+//						try{
+//							outerDef = parent as definition
+//							if(outerDef.name.equals(value.name)) return
+//						} catch(ClassCastException e2){
+//							try{
+//								in = parent as in
+//								if(in.name.equals(value.name)) return
+//							} catch(ClassCastException e3){}
+//						}
+//					}
+//					parent = parent.eContainer 
+//				} while(parent !== null)
+//				
+//				var boolean defined = false 
+//				
+//				for(statement : model.spec){
+//					if(statement.def !== null){
+////						println(statement.def.name)
+//						if(value.name == statement.def.name){
+//							defined = true
+//						}
+//					} else if(statement.in !== null){
+////						println(statement.in.name)
+//						if(value.name == statement.in.name){
+//							defined = true
+//						}
+//					}
+//				}
+//				
+//				if(!defined && !isParam){
+//					error(value.name + ' is not defined', TeSSLaPackage.Literals.DEFINITION__NAME)
+//				}
+//			}
+//		}
+////		println()
+//	}
+
+
+	@Check
+	def checkDeclarations(value value){
+		if(value.name !== null){
+			if(value.name != 'default' && value.name != 'last' && value.name != 'function_call' && value.name != 'time' && value.name != 'defaultFrom'){
+				var EObject parent = value.eContainer
+				var Model model = null
+				var definition innerDef = null
+				
+				var boolean defined = false 
+				
+				do{
+					try{
+						model = parent as Model
+					} catch(ClassCastException e){try{
+							innerDef = parent as definition
+							if(innerDef.name.equals(value.name)) defined = true
+							if(innerDef.eIsSet(TeSSLaPackage.Literals.DEFINITION__PARAM_LIST)){
+								for(param : innerDef.paramList.params){
+									if(param.equals(value.name)) defined = true
+								}
+							}
+						} catch(ClassCastException e2){
+						}
+					}
+					parent = parent.eContainer 
+				} while(parent !== null)
+				
+				
+				
+				for(statement : model.spec){
+					if(statement.def !== null){
+//						println(statement.def.name)
+						if(value.name == statement.def.name){
+							defined = true
+						}
+					} else if(statement.in !== null){
+//						println(statement.in.name)
+						if(value.name == statement.in.name){
+							defined = true
+						}
+					}
+				}
+				
+				if(!defined){
+					error(value.name + ' is not defined', TeSSLaPackage.Literals.VALUE__NAME)
+				}	
+			}
+		}
+	}
 	
 }

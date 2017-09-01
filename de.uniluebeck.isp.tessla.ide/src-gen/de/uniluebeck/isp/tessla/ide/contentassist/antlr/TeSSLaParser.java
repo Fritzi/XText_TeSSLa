@@ -33,7 +33,6 @@ public class TeSSLaParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getStatementAccess().getAlternatives_1(), "rule__Statement__Alternatives_1");
 					put(grammarAccess.getDefinitionAccess().getAlternatives_0(), "rule__Definition__Alternatives_0");
-					put(grammarAccess.getDefinitionAccess().getAlternatives_5(), "rule__Definition__Alternatives_5");
 					put(grammarAccess.getParamListAccess().getAlternatives_1(), "rule__ParamList__Alternatives_1");
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getValueAccess().getAlternatives_1(), "rule__Value__Alternatives_1");
@@ -44,7 +43,6 @@ public class TeSSLaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStatementAccess().getGroup(), "rule__Statement__Group__0");
 					put(grammarAccess.getDefinitionAccess().getGroup(), "rule__Definition__Group__0");
 					put(grammarAccess.getDefinitionAccess().getGroup_3(), "rule__Definition__Group_3__0");
-					put(grammarAccess.getDefinitionAccess().getGroup_5_1(), "rule__Definition__Group_5_1__0");
 					put(grammarAccess.getParamListAccess().getGroup(), "rule__ParamList__Group__0");
 					put(grammarAccess.getParamListAccess().getGroup_1_0(), "rule__ParamList__Group_1_0__0");
 					put(grammarAccess.getParamListAccess().getGroup_1_0_2(), "rule__ParamList__Group_1_0_2__0");
@@ -78,9 +76,7 @@ public class TeSSLaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefinitionAccess().getNameAssignment_1(), "rule__Definition__NameAssignment_1");
 					put(grammarAccess.getDefinitionAccess().getParamListAssignment_2(), "rule__Definition__ParamListAssignment_2");
 					put(grammarAccess.getDefinitionAccess().getTypeAssignment_3_1(), "rule__Definition__TypeAssignment_3_1");
-					put(grammarAccess.getDefinitionAccess().getExpressionAssignment_5_0(), "rule__Definition__ExpressionAssignment_5_0");
-					put(grammarAccess.getDefinitionAccess().getStatementsAssignment_5_1_1(), "rule__Definition__StatementsAssignment_5_1_1");
-					put(grammarAccess.getDefinitionAccess().getExpressionAssignment_5_1_2(), "rule__Definition__ExpressionAssignment_5_1_2");
+					put(grammarAccess.getDefinitionAccess().getExpressionAssignment_5(), "rule__Definition__ExpressionAssignment_5");
 					put(grammarAccess.getParamListAccess().getParamsAssignment_1_0_1(), "rule__ParamList__ParamsAssignment_1_0_1");
 					put(grammarAccess.getParamListAccess().getTypesAssignment_1_0_2_1(), "rule__ParamList__TypesAssignment_1_0_2_1");
 					put(grammarAccess.getParamListAccess().getParamsAssignment_1_0_3_1(), "rule__ParamList__ParamsAssignment_1_0_3_1");

@@ -86,7 +86,7 @@ ruleModel returns [EObject current=null]
 			{
 				newCompositeNode(grammarAccess.getModelAccess().getSpecStatementParserRuleCall_0());
 			}
-			lv_spec_0_0=rulestatement
+			lv_spec_0_0=ruleStatement
 			{
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -95,22 +95,22 @@ ruleModel returns [EObject current=null]
 					$current,
 					"spec",
 					lv_spec_0_0,
-					"de.uniluebeck.isp.tessla.TeSSLa.statement");
+					"de.uniluebeck.isp.tessla.TeSSLa.Statement");
 				afterParserOrEnumRuleCall();
 			}
 		)
 	)*
 ;
 
-// Entry rule entryRulestatement
-entryRulestatement returns [EObject current=null]:
+// Entry rule entryRuleStatement
+entryRuleStatement returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getStatementRule()); }
-	iv_rulestatement=rulestatement
-	{ $current=$iv_rulestatement.current; }
+	iv_ruleStatement=ruleStatement
+	{ $current=$iv_ruleStatement.current; }
 	EOF;
 
-// Rule statement
-rulestatement returns [EObject current=null]
+// Rule Statement
+ruleStatement returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -306,71 +306,20 @@ ruledefinition returns [EObject current=null]
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDefinitionAccess().getExpressionTypedExpressionParserRuleCall_5_0_0());
-					}
-					lv_expression_7_0=ruletypedExpression
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDefinitionRule());
-						}
-						set(
-							$current,
-							"expression",
-							lv_expression_7_0,
-							"de.uniluebeck.isp.tessla.TeSSLa.typedExpression");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				otherlv_8='{'
 				{
-					newLeafNode(otherlv_8, grammarAccess.getDefinitionAccess().getLeftCurlyBracketKeyword_5_1_0());
+					newCompositeNode(grammarAccess.getDefinitionAccess().getExpressionTypedExpressionParserRuleCall_5_0());
 				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getDefinitionAccess().getStatementsStatementParserRuleCall_5_1_1_0());
-						}
-						lv_statements_9_0=rulestatement
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getDefinitionRule());
-							}
-							add(
-								$current,
-								"statements",
-								lv_statements_9_0,
-								"de.uniluebeck.isp.tessla.TeSSLa.statement");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)*
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getDefinitionAccess().getExpressionTypedExpressionParserRuleCall_5_1_2_0());
-						}
-						lv_expression_10_0=ruletypedExpression
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getDefinitionRule());
-							}
-							set(
-								$current,
-								"expression",
-								lv_expression_10_0,
-								"de.uniluebeck.isp.tessla.TeSSLa.typedExpression");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-				otherlv_11='}'
+				lv_expression_7_0=ruletypedExpression
 				{
-					newLeafNode(otherlv_11, grammarAccess.getDefinitionAccess().getRightCurlyBracketKeyword_5_1_3());
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDefinitionRule());
+					}
+					set(
+						$current,
+						"expression",
+						lv_expression_7_0,
+						"de.uniluebeck.isp.tessla.TeSSLa.typedExpression");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -788,13 +737,10 @@ ruleexpression returns [EObject current=null]
 				)
 			)
 			(
-				(
-					('else')=>
-					otherlv_5='else'
-					{
-						newLeafNode(otherlv_5, grammarAccess.getExpressionAccess().getElseKeyword_0_5_0());
-					}
-				)
+				otherlv_5='else'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpressionAccess().getElseKeyword_0_5_0());
+				}
 				(
 					(
 						{
@@ -991,7 +937,7 @@ rulevalue returns [EObject current=null]
 						{
 							newCompositeNode(grammarAccess.getValueAccess().getStatementsStatementParserRuleCall_1_2_1_0());
 						}
-						lv_statements_7_0=rulestatement
+						lv_statements_7_0=ruleStatement
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getValueRule());
@@ -1000,7 +946,7 @@ rulevalue returns [EObject current=null]
 								$current,
 								"statements",
 								lv_statements_7_0,
-								"de.uniluebeck.isp.tessla.TeSSLa.statement");
+								"de.uniluebeck.isp.tessla.TeSSLa.Statement");
 							afterParserOrEnumRuleCall();
 						}
 					)

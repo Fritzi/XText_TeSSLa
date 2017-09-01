@@ -66,7 +66,7 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
     switch (eClass.getClassifierID())
     {
       case TeSSLaPackage.MODEL: return createModel();
-      case TeSSLaPackage.STATEMENT: return createstatement();
+      case TeSSLaPackage.STATEMENT: return createStatement();
       case TeSSLaPackage.DEFINITION: return createdefinition();
       case TeSSLaPackage.PARAM_LIST: return createparamList();
       case TeSSLaPackage.OUT: return createout();
@@ -98,9 +98,9 @@ public class TeSSLaFactoryImpl extends EFactoryImpl implements TeSSLaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public statement createstatement()
+  public Statement createStatement()
   {
-    statementImpl statement = new statementImpl();
+    StatementImpl statement = new StatementImpl();
     return statement;
   }
 

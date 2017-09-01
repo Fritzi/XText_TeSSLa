@@ -88,7 +88,7 @@ public class TeSSLaSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
-	 *     INT | 'false' | STRING | 'true' | '()'
+	 *     STRING | '()' | 'true' | INT | 'false'
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) (rule start)

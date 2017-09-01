@@ -27,7 +27,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Spec</b></em>' containment reference list.
-   * The list contents are of type {@link de.uniluebeck.isp.tessla.teSSLa.statement}.
+   * The list contents are of type {@link de.uniluebeck.isp.tessla.teSSLa.Statement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Spec</em>' containment reference list isn't clear,
@@ -39,6 +39,6 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<statement> getSpec();
+  EList<Statement> getSpec();
 
 } // Model

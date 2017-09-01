@@ -8,13 +8,13 @@ import de.uniluebeck.isp.tessla.services.TeSSLaGrammarAccess;
 import de.uniluebeck.isp.tessla.teSSLa.IfStatement;
 import de.uniluebeck.isp.tessla.teSSLa.Model;
 import de.uniluebeck.isp.tessla.teSSLa.Operation;
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.arg;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
 import de.uniluebeck.isp.tessla.teSSLa.in;
 import de.uniluebeck.isp.tessla.teSSLa.out;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
 import de.uniluebeck.isp.tessla.teSSLa.value;
 import java.util.Set;
@@ -51,6 +51,9 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case TeSSLaPackage.OPERATION:
 				sequence_expression(context, (Operation) semanticObject); 
 				return; 
+			case TeSSLaPackage.STATEMENT:
+				sequence_Statement(context, (Statement) semanticObject); 
+				return; 
 			case TeSSLaPackage.ARG:
 				sequence_arg(context, (arg) semanticObject); 
 				return; 
@@ -65,9 +68,6 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case TeSSLaPackage.PARAM_LIST:
 				sequence_paramList(context, (paramList) semanticObject); 
-				return; 
-			case TeSSLaPackage.STATEMENT:
-				sequence_statement(context, (statement) semanticObject); 
 				return; 
 			case TeSSLaPackage.TYPED_EXPRESSION:
 				sequence_typedExpression(context, (typedExpression) semanticObject); 
@@ -85,9 +85,21 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     spec+=statement+
+	 *     spec+=Statement+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Statement
+	 *
+	 * Constraint:
+	 *     (def=definition | out=out | in=in | comment=SL_COMMENT)
+	 */
+	protected void sequence_Statement(ISerializationContext context, Statement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -109,7 +121,7 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     definition returns definition
 	 *
 	 * Constraint:
-	 *     (name=ID paramList=paramList? type=type? (expression=typedExpression | (statements+=statement* expression=typedExpression)))
+	 *     (name=ID paramList=paramList? type=type? expression=typedExpression)
 	 */
 	protected void sequence_definition(ISerializationContext context, definition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -200,18 +212,6 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     statement returns statement
-	 *
-	 * Constraint:
-	 *     (def=definition | out=out | in=in | comment=SL_COMMENT)
-	 */
-	protected void sequence_statement(ISerializationContext context, statement semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     typedExpression returns typedExpression
 	 *
 	 * Constraint:
@@ -232,7 +232,7 @@ public class TeSSLaSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (
 	 *         (op=unaryOperator exp=typedExpression) | 
 	 *         exp=typedExpression | 
-	 *         (statements+=statement* exp=typedExpression) | 
+	 *         (statements+=Statement* exp=typedExpression) | 
 	 *         (name=ID (args+=arg args+=arg*)?) | 
 	 *         name=ID
 	 *     )?

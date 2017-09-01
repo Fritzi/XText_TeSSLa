@@ -4,8 +4,8 @@
 package de.uniluebeck.isp.tessla.teSSLa.impl;
 
 import de.uniluebeck.isp.tessla.teSSLa.Model;
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 
 import java.util.Collection;
 
@@ -44,7 +44,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<statement> spec;
+  protected EList<Statement> spec;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +72,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<statement> getSpec()
+  public EList<Statement> getSpec()
   {
     if (spec == null)
     {
-      spec = new EObjectContainmentEList<statement>(statement.class, this, TeSSLaPackage.MODEL__SPEC);
+      spec = new EObjectContainmentEList<Statement>(Statement.class, this, TeSSLaPackage.MODEL__SPEC);
     }
     return spec;
   }
@@ -126,7 +126,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case TeSSLaPackage.MODEL__SPEC:
         getSpec().clear();
-        getSpec().addAll((Collection<? extends statement>)newValue);
+        getSpec().addAll((Collection<? extends Statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

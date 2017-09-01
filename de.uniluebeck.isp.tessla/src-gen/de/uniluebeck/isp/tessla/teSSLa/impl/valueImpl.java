@@ -3,9 +3,9 @@
  */
 package de.uniluebeck.isp.tessla.teSSLa.impl;
 
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.arg;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
 import de.uniluebeck.isp.tessla.teSSLa.value;
 
@@ -81,7 +81,7 @@ public class valueImpl extends expressionImpl implements value
    * @generated
    * @ordered
    */
-  protected EList<statement> statements;
+  protected EList<Statement> statements;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -210,11 +210,11 @@ public class valueImpl extends expressionImpl implements value
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<statement> getStatements()
+  public EList<Statement> getStatements()
   {
     if (statements == null)
     {
-      statements = new EObjectContainmentEList<statement>(statement.class, this, TeSSLaPackage.VALUE__STATEMENTS);
+      statements = new EObjectContainmentEList<Statement>(Statement.class, this, TeSSLaPackage.VALUE__STATEMENTS);
     }
     return statements;
   }
@@ -319,7 +319,7 @@ public class valueImpl extends expressionImpl implements value
         return;
       case TeSSLaPackage.VALUE__STATEMENTS:
         getStatements().clear();
-        getStatements().addAll((Collection<? extends statement>)newValue);
+        getStatements().addAll((Collection<? extends Statement>)newValue);
         return;
       case TeSSLaPackage.VALUE__NAME:
         setName((String)newValue);

@@ -3,7 +3,18 @@
  */
 package de.uniluebeck.isp.tessla.validation;
 
+import com.google.common.base.Objects;
+import de.uniluebeck.isp.tessla.teSSLa.Model;
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
+import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
+import de.uniluebeck.isp.tessla.teSSLa.definition;
+import de.uniluebeck.isp.tessla.teSSLa.in;
+import de.uniluebeck.isp.tessla.teSSLa.value;
 import de.uniluebeck.isp.tessla.validation.AbstractTeSSLaValidator;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +23,85 @@ import de.uniluebeck.isp.tessla.validation.AbstractTeSSLaValidator;
  */
 @SuppressWarnings("all")
 public class TeSSLaValidator extends AbstractTeSSLaValidator {
+  public final static String NOT_DEFINED = "notDefined";
+  
+  @Check
+  public void checkDeclarations(final value value) {
+    String _name = value.getName();
+    boolean _tripleNotEquals = (_name != null);
+    if (_tripleNotEquals) {
+      if ((((((!Objects.equal(value.getName(), "default")) && (!Objects.equal(value.getName(), "last"))) && (!Objects.equal(value.getName(), "function_call"))) && (!Objects.equal(value.getName(), "time"))) && (!Objects.equal(value.getName(), "defaultFrom")))) {
+        EObject parent = value.eContainer();
+        Model model = null;
+        definition innerDef = null;
+        boolean defined = false;
+        do {
+          {
+            try {
+              model = ((Model) parent);
+            } catch (final Throwable _t) {
+              if (_t instanceof ClassCastException) {
+                final ClassCastException e = (ClassCastException)_t;
+                try {
+                  innerDef = ((definition) parent);
+                  boolean _equals = innerDef.getName().equals(value.getName());
+                  if (_equals) {
+                    defined = true;
+                  }
+                  boolean _eIsSet = innerDef.eIsSet(TeSSLaPackage.Literals.DEFINITION__PARAM_LIST);
+                  if (_eIsSet) {
+                    EList<String> _params = innerDef.getParamList().getParams();
+                    for (final String param : _params) {
+                      boolean _equals_1 = param.equals(value.getName());
+                      if (_equals_1) {
+                        defined = true;
+                      }
+                    }
+                  }
+                } catch (final Throwable _t_1) {
+                  if (_t_1 instanceof ClassCastException) {
+                    final ClassCastException e2 = (ClassCastException)_t_1;
+                  } else {
+                    throw Exceptions.sneakyThrow(_t_1);
+                  }
+                }
+              } else {
+                throw Exceptions.sneakyThrow(_t);
+              }
+            }
+            parent = parent.eContainer();
+          }
+        } while((parent != null));
+        EList<Statement> _spec = model.getSpec();
+        for (final Statement statement : _spec) {
+          definition _def = statement.getDef();
+          boolean _tripleNotEquals_1 = (_def != null);
+          if (_tripleNotEquals_1) {
+            String _name_1 = value.getName();
+            String _name_2 = statement.getDef().getName();
+            boolean _equals = Objects.equal(_name_1, _name_2);
+            if (_equals) {
+              defined = true;
+            }
+          } else {
+            in _in = statement.getIn();
+            boolean _tripleNotEquals_2 = (_in != null);
+            if (_tripleNotEquals_2) {
+              String _name_3 = value.getName();
+              String _name_4 = statement.getIn().getName();
+              boolean _equals_1 = Objects.equal(_name_3, _name_4);
+              if (_equals_1) {
+                defined = true;
+              }
+            }
+          }
+        }
+        if ((!defined)) {
+          String _name_5 = value.getName();
+          String _plus = (_name_5 + " is not defined");
+          this.error(_plus, TeSSLaPackage.Literals.VALUE__NAME);
+        }
+      }
+    }
+  }
 }

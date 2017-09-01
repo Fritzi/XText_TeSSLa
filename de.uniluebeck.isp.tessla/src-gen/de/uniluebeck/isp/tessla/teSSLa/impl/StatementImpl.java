@@ -3,11 +3,11 @@
  */
 package de.uniluebeck.isp.tessla.teSSLa.impl;
 
+import de.uniluebeck.isp.tessla.teSSLa.Statement;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
 import de.uniluebeck.isp.tessla.teSSLa.in;
 import de.uniluebeck.isp.tessla.teSSLa.out;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,21 +20,21 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>statement</b></em>'.
+ * An implementation of the model object '<em><b>Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl#getDef <em>Def</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl#getOut <em>Out</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl#getIn <em>In</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl#getComment <em>Comment</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl#getDef <em>Def</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl#getOut <em>Out</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl#getIn <em>In</em>}</li>
+ *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl#getComment <em>Comment</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class statementImpl extends MinimalEObjectImpl.Container implements statement
+public class StatementImpl extends MinimalEObjectImpl.Container implements Statement
 {
   /**
    * The cached value of the '{@link #getDef() <em>Def</em>}' containment reference.
@@ -91,7 +91,7 @@ public class statementImpl extends MinimalEObjectImpl.Container implements state
    * <!-- end-user-doc -->
    * @generated
    */
-  protected statementImpl()
+  protected StatementImpl()
   {
     super();
   }
@@ -407,4 +407,4 @@ public class statementImpl extends MinimalEObjectImpl.Container implements state
     return result.toString();
   }
 
-} //statementImpl
+} //StatementImpl

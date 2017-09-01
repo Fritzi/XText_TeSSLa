@@ -2,10 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="teSSLa" nsURI="http://www.uniluebeck.de/isp/tessla/TeSSLa" nsPrefix="teSSLa">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="spec" upperBound="-1" eType="#//statement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="spec" upperBound="-1" eType="#//Statement"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="statement">
+  <eClassifiers xsi:type="ecore:EClass" name="Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="def" eType="#//definition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="out" eType="#//out" containment="true"/>
@@ -19,8 +19,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//typedExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
-        eType="#//statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="paramList">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="params" unique="false"
@@ -48,7 +46,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//typedExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
-        eType="#//statement" containment="true"/>
+        eType="#//Statement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//arg"
         containment="true"/>

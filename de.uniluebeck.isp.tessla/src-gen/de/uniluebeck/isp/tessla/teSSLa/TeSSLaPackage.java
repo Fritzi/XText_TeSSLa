@@ -86,11 +86,11 @@ public interface TeSSLaPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl <em>statement</em>}' class.
+   * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl <em>Statement</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl
-   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getstatement()
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl
+   * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getStatement()
    * @generated
    */
   int STATEMENT = 1;
@@ -132,7 +132,7 @@ public interface TeSSLaPackage extends EPackage
   int STATEMENT__COMMENT = 3;
 
   /**
-   * The number of structural features of the '<em>statement</em>' class.
+   * The number of structural features of the '<em>Statement</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -187,22 +187,13 @@ public interface TeSSLaPackage extends EPackage
   int DEFINITION__EXPRESSION = 3;
 
   /**
-   * The feature id for the '<em><b>Statements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEFINITION__STATEMENTS = 4;
-
-  /**
    * The number of structural features of the '<em>definition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINITION_FEATURE_COUNT = 5;
+  int DEFINITION_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.paramListImpl <em>param List</em>}' class.
@@ -587,58 +578,58 @@ public interface TeSSLaPackage extends EPackage
   EReference getModel_Spec();
 
   /**
-   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.statement <em>statement</em>}'.
+   * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.Statement <em>Statement</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>statement</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.statement
+   * @return the meta object for class '<em>Statement</em>'.
+   * @see de.uniluebeck.isp.tessla.teSSLa.Statement
    * @generated
    */
-  EClass getstatement();
+  EClass getStatement();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getDef <em>Def</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getDef <em>Def</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Def</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getDef()
-   * @see #getstatement()
+   * @see de.uniluebeck.isp.tessla.teSSLa.Statement#getDef()
+   * @see #getStatement()
    * @generated
    */
-  EReference getstatement_Def();
+  EReference getStatement_Def();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getOut <em>Out</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getOut <em>Out</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Out</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getOut()
-   * @see #getstatement()
+   * @see de.uniluebeck.isp.tessla.teSSLa.Statement#getOut()
+   * @see #getStatement()
    * @generated
    */
-  EReference getstatement_Out();
+  EReference getStatement_Out();
 
   /**
-   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getIn <em>In</em>}'.
+   * Returns the meta object for the containment reference '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getIn <em>In</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>In</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getIn()
-   * @see #getstatement()
+   * @see de.uniluebeck.isp.tessla.teSSLa.Statement#getIn()
+   * @see #getStatement()
    * @generated
    */
-  EReference getstatement_In();
+  EReference getStatement_In();
 
   /**
-   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.statement#getComment <em>Comment</em>}'.
+   * Returns the meta object for the attribute '{@link de.uniluebeck.isp.tessla.teSSLa.Statement#getComment <em>Comment</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Comment</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.statement#getComment()
-   * @see #getstatement()
+   * @see de.uniluebeck.isp.tessla.teSSLa.Statement#getComment()
+   * @see #getStatement()
    * @generated
    */
-  EAttribute getstatement_Comment();
+  EAttribute getStatement_Comment();
 
   /**
    * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.definition <em>definition</em>}'.
@@ -693,17 +684,6 @@ public interface TeSSLaPackage extends EPackage
    * @generated
    */
   EReference getdefinition_Expression();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link de.uniluebeck.isp.tessla.teSSLa.definition#getStatements <em>Statements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Statements</em>'.
-   * @see de.uniluebeck.isp.tessla.teSSLa.definition#getStatements()
-   * @see #getdefinition()
-   * @generated
-   */
-  EReference getdefinition_Statements();
 
   /**
    * Returns the meta object for class '{@link de.uniluebeck.isp.tessla.teSSLa.paramList <em>param List</em>}'.
@@ -1068,14 +1048,14 @@ public interface TeSSLaPackage extends EPackage
     EReference MODEL__SPEC = eINSTANCE.getModel_Spec();
 
     /**
-     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl <em>statement</em>}' class.
+     * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl <em>Statement</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.statementImpl
-     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getstatement()
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.StatementImpl
+     * @see de.uniluebeck.isp.tessla.teSSLa.impl.TeSSLaPackageImpl#getStatement()
      * @generated
      */
-    EClass STATEMENT = eINSTANCE.getstatement();
+    EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
      * The meta object literal for the '<em><b>Def</b></em>' containment reference feature.
@@ -1083,7 +1063,7 @@ public interface TeSSLaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENT__DEF = eINSTANCE.getstatement_Def();
+    EReference STATEMENT__DEF = eINSTANCE.getStatement_Def();
 
     /**
      * The meta object literal for the '<em><b>Out</b></em>' containment reference feature.
@@ -1091,7 +1071,7 @@ public interface TeSSLaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENT__OUT = eINSTANCE.getstatement_Out();
+    EReference STATEMENT__OUT = eINSTANCE.getStatement_Out();
 
     /**
      * The meta object literal for the '<em><b>In</b></em>' containment reference feature.
@@ -1099,7 +1079,7 @@ public interface TeSSLaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STATEMENT__IN = eINSTANCE.getstatement_In();
+    EReference STATEMENT__IN = eINSTANCE.getStatement_In();
 
     /**
      * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
@@ -1107,7 +1087,7 @@ public interface TeSSLaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STATEMENT__COMMENT = eINSTANCE.getstatement_Comment();
+    EAttribute STATEMENT__COMMENT = eINSTANCE.getStatement_Comment();
 
     /**
      * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl <em>definition</em>}' class.
@@ -1150,14 +1130,6 @@ public interface TeSSLaPackage extends EPackage
      * @generated
      */
     EReference DEFINITION__EXPRESSION = eINSTANCE.getdefinition_Expression();
-
-    /**
-     * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEFINITION__STATEMENTS = eINSTANCE.getdefinition_Statements();
 
     /**
      * The meta object literal for the '{@link de.uniluebeck.isp.tessla.teSSLa.impl.paramListImpl <em>param List</em>}' class.

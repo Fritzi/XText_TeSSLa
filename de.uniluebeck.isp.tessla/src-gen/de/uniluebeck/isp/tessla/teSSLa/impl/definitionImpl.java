@@ -6,24 +6,16 @@ package de.uniluebeck.isp.tessla.teSSLa.impl;
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage;
 import de.uniluebeck.isp.tessla.teSSLa.definition;
 import de.uniluebeck.isp.tessla.teSSLa.paramList;
-import de.uniluebeck.isp.tessla.teSSLa.statement;
 import de.uniluebeck.isp.tessla.teSSLa.typedExpression;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getParamList <em>Param List</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getType <em>Type</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getExpression <em>Expression</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.impl.definitionImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,16 +94,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * @ordered
    */
   protected typedExpression expression;
-
-  /**
-   * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStatements()
-   * @generated
-   * @ordered
-   */
-  protected EList<statement> statements;
 
   /**
    * <!-- begin-user-doc -->
@@ -282,20 +263,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<statement> getStatements()
-  {
-    if (statements == null)
-    {
-      statements = new EObjectContainmentEList<statement>(statement.class, this, TeSSLaPackage.DEFINITION__STATEMENTS);
-    }
-    return statements;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -305,8 +272,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
         return basicSetParamList(null, msgs);
       case TeSSLaPackage.DEFINITION__EXPRESSION:
         return basicSetExpression(null, msgs);
-      case TeSSLaPackage.DEFINITION__STATEMENTS:
-        return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -329,8 +294,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
         return getType();
       case TeSSLaPackage.DEFINITION__EXPRESSION:
         return getExpression();
-      case TeSSLaPackage.DEFINITION__STATEMENTS:
-        return getStatements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -340,7 +303,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -357,10 +319,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
         return;
       case TeSSLaPackage.DEFINITION__EXPRESSION:
         setExpression((typedExpression)newValue);
-        return;
-      case TeSSLaPackage.DEFINITION__STATEMENTS:
-        getStatements().clear();
-        getStatements().addAll((Collection<? extends statement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -388,9 +346,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
       case TeSSLaPackage.DEFINITION__EXPRESSION:
         setExpression((typedExpression)null);
         return;
-      case TeSSLaPackage.DEFINITION__STATEMENTS:
-        getStatements().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -413,8 +368,6 @@ public class definitionImpl extends MinimalEObjectImpl.Container implements defi
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case TeSSLaPackage.DEFINITION__EXPRESSION:
         return expression != null;
-      case TeSSLaPackage.DEFINITION__STATEMENTS:
-        return statements != null && !statements.isEmpty();
     }
     return super.eIsSet(featureID);
   }

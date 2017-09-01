@@ -3,8 +3,6 @@
  */
 package de.uniluebeck.isp.tessla.teSSLa;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getParamList <em>Param List</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getType <em>Type</em>}</li>
  *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getExpression <em>Expression</em>}</li>
- *   <li>{@link de.uniluebeck.isp.tessla.teSSLa.definition#getStatements <em>Statements</em>}</li>
  * </ul>
  *
  * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getdefinition()
@@ -132,21 +129,5 @@ public interface definition extends EObject
    * @generated
    */
   void setExpression(typedExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link de.uniluebeck.isp.tessla.teSSLa.statement}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Statements</em>' containment reference list.
-   * @see de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage#getdefinition_Statements()
-   * @model containment="true"
-   * @generated
-   */
-  EList<statement> getStatements();
 
 } // definition

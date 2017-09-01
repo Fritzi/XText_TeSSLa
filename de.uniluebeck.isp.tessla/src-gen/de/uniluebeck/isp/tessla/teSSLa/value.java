@@ -81,7 +81,7 @@ public interface value extends expression
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
-   * The list contents are of type {@link de.uniluebeck.isp.tessla.teSSLa.statement}.
+   * The list contents are of type {@link de.uniluebeck.isp.tessla.teSSLa.Statement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
@@ -93,7 +93,7 @@ public interface value extends expression
    * @model containment="true"
    * @generated
    */
-  EList<statement> getStatements();
+  EList<Statement> getStatements();
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
