@@ -3,14 +3,12 @@
  */
 package de.uniluebeck.isp.tessla.validation
 
-import org.eclipse.xtext.validation.Check
 import de.uniluebeck.isp.tessla.teSSLa.Model
-import de.uniluebeck.isp.tessla.teSSLa.value
-import org.eclipse.emf.ecore.EObject
 import de.uniluebeck.isp.tessla.teSSLa.TeSSLaPackage
 import de.uniluebeck.isp.tessla.teSSLa.definition
-import de.uniluebeck.isp.tessla.teSSLa.paramList
-import de.uniluebeck.isp.tessla.teSSLa.in
+import de.uniluebeck.isp.tessla.teSSLa.value
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.validation.Check
 
 /**
  * This class contains custom validation rules. 
@@ -20,101 +18,6 @@ import de.uniluebeck.isp.tessla.teSSLa.in
 class TeSSLaValidator extends AbstractTeSSLaValidator {
 	
 	public static val NOT_DEFINED = 'notDefined'
-	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					TeSSLaPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
-
-//	@Check 
-//	def checkDefinitions(definition definition){
-//		
-////		println(definition.name + ':')
-//		
-//		// get paramList if there is one
-//		var paramList paramL = null
-//		var boolean hasParamList = false
-//		if(definition.eIsSet(TeSSLaPackage.Literals.DEFINITION__PARAM_LIST)){
-//			hasParamList = true
-//			paramL = definition.paramList
-//		}
-//			
-//		// check for all values that occur in the definition if they are defined
-//		for(value value : definition.eAllContents.toIterable.filter(value)){
-//			// search for named values that are not pre-defined
-//			if(value.eIsSet(TeSSLaPackage.Literals.VALUE__NAME)
-//					&& !value.name.equals("default") 
-//					&& !value.name.equals("last") 
-//					&& !value.name.equals("function_call") 
-//					&& !value.name.equals("time") 
-//					&& !value.name.equals("defaultFrom")){	
-//				
-////				println(value.name)
-//				
-//				var boolean isParam = false
-//				
-//				// check if value = parameter of definition
-//				if(hasParamList){
-//					for(param : paramL.params){
-//						if(param.equals(value.name)) isParam = true
-//					}
-//					
-////					if(!isParam) println(value.name + ' is not a parameter')	
-//				}
-//				
-//				// check if value is defined
-//				var EObject parent = definition.eContainer
-//				var Model model = null
-//				var definition outerDef = null
-//				var in in = null
-//				
-//				do{
-//					try{
-//						model = parent as Model
-//					} catch(ClassCastException e){
-//						try{
-//							outerDef = parent as definition
-//							if(outerDef.name.equals(value.name)) return
-//						} catch(ClassCastException e2){
-//							try{
-//								in = parent as in
-//								if(in.name.equals(value.name)) return
-//							} catch(ClassCastException e3){}
-//						}
-//					}
-//					parent = parent.eContainer 
-//				} while(parent !== null)
-//				
-//				var boolean defined = false 
-//				
-//				for(statement : model.spec){
-//					if(statement.def !== null){
-////						println(statement.def.name)
-//						if(value.name == statement.def.name){
-//							defined = true
-//						}
-//					} else if(statement.in !== null){
-////						println(statement.in.name)
-//						if(value.name == statement.in.name){
-//							defined = true
-//						}
-//					}
-//				}
-//				
-//				if(!defined && !isParam){
-//					error(value.name + ' is not defined', TeSSLaPackage.Literals.DEFINITION__NAME)
-//				}
-//			}
-//		}
-////		println()
-//	}
-
 
 	@Check
 	def checkDeclarations(value value){
@@ -123,13 +26,15 @@ class TeSSLaValidator extends AbstractTeSSLaValidator {
 				var EObject parent = value.eContainer
 				var Model model = null
 				var definition innerDef = null
+				var value valueWithStatements = null
 				
 				var boolean defined = false 
 				
 				do{
 					try{
 						model = parent as Model
-					} catch(ClassCastException e){try{
+					} catch(ClassCastException e){
+						try{
 							innerDef = parent as definition
 							if(innerDef.name.equals(value.name)) defined = true
 							if(innerDef.eIsSet(TeSSLaPackage.Literals.DEFINITION__PARAM_LIST)){
@@ -138,6 +43,23 @@ class TeSSLaValidator extends AbstractTeSSLaValidator {
 								}
 							}
 						} catch(ClassCastException e2){
+							try{
+								valueWithStatements = parent as value
+								if(valueWithStatements.eIsSet(TeSSLaPackage.Literals.VALUE__STATEMENTS)){
+									for(statement : valueWithStatements.statements){
+										if(statement.def !== null){
+											if(value.name == statement.def.name){
+												defined = true
+											}
+										}
+										else if(statement.in !== null){
+											if(value.name == statement.in.name){
+												defined = true
+											}
+										}
+									}
+								}
+							} catch (Exception e3){}
 						}
 					}
 					parent = parent.eContainer 
@@ -147,12 +69,10 @@ class TeSSLaValidator extends AbstractTeSSLaValidator {
 				
 				for(statement : model.spec){
 					if(statement.def !== null){
-//						println(statement.def.name)
 						if(value.name == statement.def.name){
 							defined = true
 						}
 					} else if(statement.in !== null){
-//						println(statement.in.name)
 						if(value.name == statement.in.name){
 							defined = true
 						}

@@ -34,6 +34,7 @@ public class TeSSLaValidator extends AbstractTeSSLaValidator {
         EObject parent = value.eContainer();
         Model model = null;
         definition innerDef = null;
+        de.uniluebeck.isp.tessla.teSSLa.value valueWithStatements = null;
         boolean defined = false;
         do {
           {
@@ -61,6 +62,42 @@ public class TeSSLaValidator extends AbstractTeSSLaValidator {
                 } catch (final Throwable _t_1) {
                   if (_t_1 instanceof ClassCastException) {
                     final ClassCastException e2 = (ClassCastException)_t_1;
+                    try {
+                      valueWithStatements = ((de.uniluebeck.isp.tessla.teSSLa.value) parent);
+                      boolean _eIsSet_1 = valueWithStatements.eIsSet(TeSSLaPackage.Literals.VALUE__STATEMENTS);
+                      if (_eIsSet_1) {
+                        EList<Statement> _statements = valueWithStatements.getStatements();
+                        for (final Statement statement : _statements) {
+                          definition _def = statement.getDef();
+                          boolean _tripleNotEquals_1 = (_def != null);
+                          if (_tripleNotEquals_1) {
+                            String _name_1 = value.getName();
+                            String _name_2 = statement.getDef().getName();
+                            boolean _equals_2 = Objects.equal(_name_1, _name_2);
+                            if (_equals_2) {
+                              defined = true;
+                            }
+                          } else {
+                            in _in = statement.getIn();
+                            boolean _tripleNotEquals_2 = (_in != null);
+                            if (_tripleNotEquals_2) {
+                              String _name_3 = value.getName();
+                              String _name_4 = statement.getIn().getName();
+                              boolean _equals_3 = Objects.equal(_name_3, _name_4);
+                              if (_equals_3) {
+                                defined = true;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    } catch (final Throwable _t_2) {
+                      if (_t_2 instanceof Exception) {
+                        final Exception e3 = (Exception)_t_2;
+                      } else {
+                        throw Exceptions.sneakyThrow(_t_2);
+                      }
+                    }
                   } else {
                     throw Exceptions.sneakyThrow(_t_1);
                   }
