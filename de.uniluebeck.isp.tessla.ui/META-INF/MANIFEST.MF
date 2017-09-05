@@ -3,10 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: de.uniluebeck.isp.tessla.ui
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: de.uniluebeck.isp.tessla.ui; singleton:=true
+Bundle-SymbolicName: de.uniluebeck.isp.tessla.xtext.ui;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: de.uniluebeck.isp.tessla,
- de.uniluebeck.isp.tessla.ide,
+Require-Bundle: de.uniluebeck.isp.tessla.xtext,
+ de.uniluebeck.isp.tessla.xtext.ide,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
